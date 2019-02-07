@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0,'/opt')
+
 from migen import *
 
 from migen.genlib.io import CRG
@@ -103,14 +106,6 @@ _io = [
         Subsignal("mosi", Pins("D17")),
         Subsignal("miso", Pins("E17")),
         IOStandard("LVCMOS33")
-    ),
-
-    ("I2C", 0,
-    	Subsignal("cs_n", Pins("K2")),
-        Subsignal("clk", Pins("E7")),
-        Subsignal("mosi", Pins("J3")),
-        Subsignal("miso", Pins("J4")),
-        IOStandard("LVCMOS33")
     )
 ]
 
@@ -146,7 +141,6 @@ class BaseSoC(SoCCore):
         "display",
         "SD",
         "LCD",
-        "I2C"
     ]
     csr_map_update(SoCCore.csr_map, csr_peripherals)
 
@@ -202,8 +196,6 @@ class BaseSoC(SoCCore):
         self.submodules.SD = SD(platform.request("SD"),platform.request("butt"),"csr")
         # LCD
         self.submodules.LCD = SPIMaster(platform.request("LCD"))
-        # I2C
-        self.submodules.I2C = SPIMaster(platform.request("I2C"))
 
 soc = BaseSoC(platform)
 
