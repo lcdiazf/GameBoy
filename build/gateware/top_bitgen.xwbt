@@ -1,0 +1,7 @@
+INFILE=/media/luis/OS/Users/ASUS/Documents/UniversidadNacional/2018-III/ElectronicaDigitalII/GameBoy/build/gateware/top.ncd
+OUTFILE=/media/luis/OS/Users/ASUS/Documents/UniversidadNacional/2018-III/ElectronicaDigitalII/GameBoy/build/gateware/top.bit
+FAMILY=Artix7
+PART=xc7a100t-1csg324
+WORKINGDIR=/media/luis/OS/Users/ASUS/Documents/UniversidadNacional/2018-III/ElectronicaDigitalII/GameBoy/build/gateware
+LICENSE=WebPack
+USER_INFO=211380202_0_0_930
