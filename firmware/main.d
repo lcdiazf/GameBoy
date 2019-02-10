@@ -1,34 +1,35 @@
-main.o: main.c \
- /usr/lib/python3/dist-packages/litex/soc/software/include/base/stdio.h \
- /usr/lib/python3/dist-packages/litex/soc/software/include/base/stddef.h \
- /usr/lib/python3/dist-packages/litex/soc/software/include/base/stdlib.h \
- /usr/lib/python3/dist-packages/litex/soc/software/include/base/string.h \
- /usr/lib/python3/dist-packages/litex/soc/software/include/base/irq.h \
- /usr/lib/python3/dist-packages/litex/soc/software/include/base/system.h \
- /usr/lib/python3/dist-packages/litex/soc/software/include/base/uart.h \
- /usr/lib/python3/dist-packages/litex/soc/software/include/base/console.h \
- /media/luis/OS/Users/ASUS/Documents/UniversidadNacional/2018-III/ElectronicaDigitalII/fpga_101/SD_test/build/software/include/generated/csr.h \
- /usr/lib/python3/dist-packages/litex/soc/software/include/base/stdint.h \
- /usr/lib/python3/dist-packages/litex/soc/software/include/hw/common.h
+main.o: main.c /opt/litex/soc/software/include/base/stdio.h \
+  /opt/litex/soc/software/include/base/stddef.h \
+  /opt/litex/soc/software/include/base/stdlib.h \
+  /opt/litex/soc/software/include/base/string.h \
+  /opt/litex/soc/software/include/base/irq.h \
+  /opt/litex/soc/software/include/base/system.h \
+  /opt/litex/soc/software/include/base/uart.h \
+  /opt/litex/soc/software/include/base/console.h \
+  /opt/GameBoy/build/software/include/generated/csr.h \
+  /opt/litex/soc/software/include/base/stdint.h \
+  /opt/litex/soc/software/include/hw/common.h ./I2C.h
 
-/usr/lib/python3/dist-packages/litex/soc/software/include/base/stdio.h:
+/opt/litex/soc/software/include/base/stdio.h:
 
-/usr/lib/python3/dist-packages/litex/soc/software/include/base/stddef.h:
+/opt/litex/soc/software/include/base/stddef.h:
 
-/usr/lib/python3/dist-packages/litex/soc/software/include/base/stdlib.h:
+/opt/litex/soc/software/include/base/stdlib.h:
 
-/usr/lib/python3/dist-packages/litex/soc/software/include/base/string.h:
+/opt/litex/soc/software/include/base/string.h:
 
-/usr/lib/python3/dist-packages/litex/soc/software/include/base/irq.h:
+/opt/litex/soc/software/include/base/irq.h:
 
-/usr/lib/python3/dist-packages/litex/soc/software/include/base/system.h:
+/opt/litex/soc/software/include/base/system.h:
 
-/usr/lib/python3/dist-packages/litex/soc/software/include/base/uart.h:
+/opt/litex/soc/software/include/base/uart.h:
 
-/usr/lib/python3/dist-packages/litex/soc/software/include/base/console.h:
+/opt/litex/soc/software/include/base/console.h:
 
-/media/luis/OS/Users/ASUS/Documents/UniversidadNacional/2018-III/ElectronicaDigitalII/fpga_101/SD_test/build/software/include/generated/csr.h:
+/opt/GameBoy/build/software/include/generated/csr.h:
 
-/usr/lib/python3/dist-packages/litex/soc/software/include/base/stdint.h:
+/opt/litex/soc/software/include/base/stdint.h:
 
-/usr/lib/python3/dist-packages/litex/soc/software/include/hw/common.h:
+/opt/litex/soc/software/include/hw/common.h:
+
+./I2C.h:

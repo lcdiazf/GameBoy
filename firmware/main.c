@@ -6,7 +6,7 @@
 #include <uart.h>
 #include <console.h>
 #include <generated/csr.h>
-
+#include "./I2C.h"
 
 typedef struct {
 	volatile uint32_t write;
@@ -96,7 +96,8 @@ static void help(void)
 	puts("led                             - led test");
 	puts("led2                            - led2 test");
 	puts("spi                             - spi test");
-	puts("out test (spi)                  - out test");
+	puts("out                             - out test");
+	puts("I2C test                        - I2C test");
 }
 
 static void reboot(void)
@@ -164,6 +165,14 @@ static void out_test(void)
     }
 }
 
+static void I2C_test(void)
+{
+    int i=50;
+    while(i>0){        
+        Write_I2C(0x555);
+    }
+}
+
 static void console_service(void)
 {
 	char *str;
@@ -186,6 +195,8 @@ static void console_service(void)
 		spi_test();
 	else if(strcmp(token, "out") == 0)
 		out_test();
+	else if(strcmp(token, "I2C_test") == 0)
+		I2C_test();
 	prompt();
 }
 
