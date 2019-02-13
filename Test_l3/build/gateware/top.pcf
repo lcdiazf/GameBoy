@@ -1,0 +1,1373 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Wed Jan 30 20:21:29 2019
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "user_sw13" LOCATE = SITE "R3" LEVEL 1;
+COMP "user_sw14" LOCATE = SITE "P3" LEVEL 1;
+COMP "user_sw15" LOCATE = SITE "P4" LEVEL 1;
+COMP "user_rgb_led0_g" LOCATE = SITE "H6" LEVEL 1;
+COMP "user_rgb_led0_b" LOCATE = SITE "L16" LEVEL 1;
+COMP "serial_rx" LOCATE = SITE "C4" LEVEL 1;
+COMP "user_rgb_led0_r" LOCATE = SITE "K6" LEVEL 1;
+COMP "SPIprueba_mosi" LOCATE = SITE "V11" LEVEL 1;
+COMP "clk100" LOCATE = SITE "E3" LEVEL 1;
+COMP "user_led10" LOCATE = SITE "V1" LEVEL 1;
+COMP "user_led11" LOCATE = SITE "R1" LEVEL 1;
+COMP "user_led12" LOCATE = SITE "P5" LEVEL 1;
+COMP "user_led13" LOCATE = SITE "U1" LEVEL 1;
+COMP "user_led14" LOCATE = SITE "R2" LEVEL 1;
+COMP "user_led15" LOCATE = SITE "P2" LEVEL 1;
+COMP "out_probe0" LOCATE = SITE "B13" LEVEL 1;
+COMP "SPIprueba_cs_n" LOCATE = SITE "G14" LEVEL 1;
+COMP "SPIprueba_miso" LOCATE = SITE "P15" LEVEL 1;
+COMP "adxl362_spi_cs_n" LOCATE = SITE "C15" LEVEL 1;
+COMP "display_abcdefg<7>" LOCATE = SITE "M4" LEVEL 1;
+COMP "display_abcdefg<6>" LOCATE = SITE "L6" LEVEL 1;
+COMP "display_abcdefg<5>" LOCATE = SITE "M2" LEVEL 1;
+COMP "display_abcdefg<0>" LOCATE = SITE "L3" LEVEL 1;
+COMP "display_abcdefg<4>" LOCATE = SITE "K3" LEVEL 1;
+COMP "display_abcdefg<3>" LOCATE = SITE "L4" LEVEL 1;
+COMP "display_abcdefg<2>" LOCATE = SITE "L5" LEVEL 1;
+COMP "display_abcdefg<1>" LOCATE = SITE "N1" LEVEL 1;
+COMP "display_cs_n<2>" LOCATE = SITE "N5" LEVEL 1;
+COMP "display_cs_n<1>" LOCATE = SITE "M6" LEVEL 1;
+COMP "cpu_reset" LOCATE = SITE "C12" LEVEL 1;
+COMP "display_cs_n<4>" LOCATE = SITE "L1" LEVEL 1;
+COMP "display_cs_n<3>" LOCATE = SITE "N2" LEVEL 1;
+COMP "display_cs_n<0>" LOCATE = SITE "N6" LEVEL 1;
+COMP "display_cs_n<6>" LOCATE = SITE "M3" LEVEL 1;
+COMP "display_cs_n<5>" LOCATE = SITE "M1" LEVEL 1;
+COMP "display_cs_n<7>" LOCATE = SITE "N4" LEVEL 1;
+COMP "user_led0" LOCATE = SITE "T8" LEVEL 1;
+COMP "user_led1" LOCATE = SITE "V9" LEVEL 1;
+COMP "user_led2" LOCATE = SITE "R8" LEVEL 1;
+COMP "user_led3" LOCATE = SITE "T6" LEVEL 1;
+COMP "user_led4" LOCATE = SITE "T5" LEVEL 1;
+COMP "user_led5" LOCATE = SITE "T4" LEVEL 1;
+COMP "user_led6" LOCATE = SITE "U7" LEVEL 1;
+COMP "user_led7" LOCATE = SITE "U6" LEVEL 1;
+COMP "user_led8" LOCATE = SITE "V4" LEVEL 1;
+COMP "user_led9" LOCATE = SITE "U3" LEVEL 1;
+COMP "user_btn0" LOCATE = SITE "E16" LEVEL 1;
+COMP "user_btn1" LOCATE = SITE "V10" LEVEL 1;
+COMP "user_btn2" LOCATE = SITE "T16" LEVEL 1;
+COMP "user_btn3" LOCATE = SITE "R10" LEVEL 1;
+COMP "user_btn4" LOCATE = SITE "F15" LEVEL 1;
+COMP "user_sw0" LOCATE = SITE "U9" LEVEL 1;
+COMP "user_sw1" LOCATE = SITE "U8" LEVEL 1;
+COMP "user_sw2" LOCATE = SITE "R7" LEVEL 1;
+COMP "user_sw3" LOCATE = SITE "R6" LEVEL 1;
+COMP "user_sw4" LOCATE = SITE "R5" LEVEL 1;
+COMP "user_sw5" LOCATE = SITE "V7" LEVEL 1;
+COMP "user_sw6" LOCATE = SITE "V6" LEVEL 1;
+COMP "user_sw7" LOCATE = SITE "V5" LEVEL 1;
+COMP "user_sw8" LOCATE = SITE "U4" LEVEL 1;
+COMP "user_sw9" LOCATE = SITE "V2" LEVEL 1;
+COMP "adxl362_spi_clk" LOCATE = SITE "D15" LEVEL 1;
+COMP "SPIprueba_clk" LOCATE = SITE "V15" LEVEL 1;
+COMP "adxl362_spi_mosi" LOCATE = SITE "B14" LEVEL 1;
+COMP "serial_tx" LOCATE = SITE "D4" LEVEL 1;
+COMP "adxl362_spi_miso" LOCATE = SITE "D13" LEVEL 1;
+COMP "user_sw10" LOCATE = SITE "U2" LEVEL 1;
+COMP "user_sw11" LOCATE = SITE "T3" LEVEL 1;
+COMP "user_sw12" LOCATE = SITE "T1" LEVEL 1;
+PIN XADC_pins<14> = BEL "XADC" PINNAME DCLK;
+PIN Mram_mem_pins<63> = BEL "Mram_mem" PINNAME CLKARDCLKU;
+PIN Mram_mem_pins<62> = BEL "Mram_mem" PINNAME CLKARDCLKL;
+TIMEGRP PRDclk100 = BEL "xilinxmultiregimpl0_regs0" BEL
+        "xilinxmultiregimpl1_regs0_0" BEL "xilinxmultiregimpl1_regs0_1" BEL
+        "xilinxmultiregimpl1_regs0_2" BEL "xilinxmultiregimpl1_regs0_3" BEL
+        "xilinxmultiregimpl1_regs0_4" BEL "xilinxmultiregimpl1_regs0_5" BEL
+        "xilinxmultiregimpl1_regs0_6" BEL "xilinxmultiregimpl1_regs0_7" BEL
+        "xilinxmultiregimpl1_regs0_8" BEL "xilinxmultiregimpl1_regs0_9" BEL
+        "xilinxmultiregimpl1_regs0_10" BEL "xilinxmultiregimpl1_regs0_11" BEL
+        "xilinxmultiregimpl1_regs0_12" BEL "xilinxmultiregimpl1_regs0_13" BEL
+        "xilinxmultiregimpl1_regs0_14" BEL "xilinxmultiregimpl1_regs0_15" BEL
+        "xilinxmultiregimpl2_regs0_0" BEL "xilinxmultiregimpl2_regs0_1" BEL
+        "xilinxmultiregimpl2_regs0_2" BEL "xilinxmultiregimpl2_regs0_3" BEL
+        "xilinxmultiregimpl2_regs0_4" BEL "int_rst" BEL
+        "xilinxmultiregimpl0_regs1" BEL "xilinxmultiregimpl1_regs1_0" BEL
+        "xilinxmultiregimpl1_regs1_1" BEL "xilinxmultiregimpl1_regs1_2" BEL
+        "xilinxmultiregimpl1_regs1_3" BEL "xilinxmultiregimpl1_regs1_4" BEL
+        "xilinxmultiregimpl1_regs1_5" BEL "xilinxmultiregimpl1_regs1_6" BEL
+        "xilinxmultiregimpl1_regs1_7" BEL "xilinxmultiregimpl1_regs1_8" BEL
+        "xilinxmultiregimpl1_regs1_9" BEL "xilinxmultiregimpl1_regs1_10" BEL
+        "xilinxmultiregimpl1_regs1_11" BEL "xilinxmultiregimpl1_regs1_12" BEL
+        "xilinxmultiregimpl1_regs1_13" BEL "xilinxmultiregimpl1_regs1_14" BEL
+        "xilinxmultiregimpl1_regs1_15" BEL "xilinxmultiregimpl2_regs1_0" BEL
+        "xilinxmultiregimpl2_regs1_1" BEL "xilinxmultiregimpl2_regs1_2" BEL
+        "xilinxmultiregimpl2_regs1_3" BEL "xilinxmultiregimpl2_regs1_4" BEL
+        "basesoc_wishbone2csr_dat_r_0" BEL "basesoc_wishbone2csr_dat_r_1" BEL
+        "basesoc_wishbone2csr_dat_r_2" BEL "basesoc_wishbone2csr_dat_r_3" BEL
+        "basesoc_wishbone2csr_dat_r_5" BEL "basesoc_wishbone2csr_dat_r_16" BEL
+        "basesoc_wishbone2csr_dat_r_17" BEL "basesoc_wishbone2csr_dat_r_18"
+        BEL "basesoc_wishbone2csr_dat_r_19" BEL
+        "basesoc_wishbone2csr_dat_r_20" BEL "basesoc_wishbone2csr_dat_r_21"
+        BEL "basesoc_wishbone2csr_dat_r_22" BEL
+        "basesoc_wishbone2csr_dat_r_23" BEL "basesoc_wishbone2csr_dat_r_24"
+        BEL "basesoc_wishbone2csr_dat_r_25" BEL
+        "basesoc_wishbone2csr_dat_r_26" BEL "basesoc_wishbone2csr_dat_r_27"
+        BEL "basesoc_wishbone2csr_dat_r_28" BEL
+        "basesoc_wishbone2csr_dat_r_29" BEL "basesoc_wishbone2csr_dat_r_30"
+        BEL "basesoc_wishbone2csr_dat_r_31" BEL "adxl362_spimastercore_active"
+        BEL "probeSPI_spimastercore_active" BEL "sel_r" BEL "display_cs2_0"
+        BEL "display_cs2_1" BEL "display_cs2_2" BEL "display_cs2_3" BEL
+        "display_cs2_4" BEL "display_cs2_5" BEL "uartwishbonebridge_rx_rx_r"
+        BEL "adxl362_spimastercore_pending0" BEL
+        "probeSPI_spimastercore_pending0" BEL "uartwishbonebridge_rx_rx_reg_0"
+        BEL "uartwishbonebridge_rx_rx_reg_1" BEL
+        "uartwishbonebridge_rx_rx_reg_2" BEL "uartwishbonebridge_rx_rx_reg_3"
+        BEL "uartwishbonebridge_rx_rx_reg_4" BEL
+        "uartwishbonebridge_rx_rx_reg_5" BEL "uartwishbonebridge_rx_rx_reg_6"
+        BEL "uartwishbonebridge_rx_rx_reg_7" BEL "xadc_vccint_status_0" BEL
+        "xadc_vccint_status_1" BEL "xadc_vccint_status_2" BEL
+        "xadc_vccint_status_3" BEL "xadc_vccint_status_4" BEL
+        "xadc_vccint_status_5" BEL "xadc_vccint_status_6" BEL
+        "xadc_vccint_status_7" BEL "xadc_vccint_status_8" BEL
+        "xadc_vccint_status_9" BEL "xadc_vccint_status_10" BEL
+        "xadc_vccint_status_11" BEL "xadc_temperature_status_0" BEL
+        "xadc_temperature_status_1" BEL "xadc_temperature_status_2" BEL
+        "xadc_temperature_status_3" BEL "xadc_temperature_status_4" BEL
+        "xadc_temperature_status_5" BEL "xadc_temperature_status_6" BEL
+        "xadc_temperature_status_7" BEL "xadc_temperature_status_8" BEL
+        "xadc_temperature_status_9" BEL "xadc_temperature_status_10" BEL
+        "xadc_temperature_status_11" BEL "xadc_vccaux_status_0" BEL
+        "xadc_vccaux_status_1" BEL "xadc_vccaux_status_2" BEL
+        "xadc_vccaux_status_3" BEL "xadc_vccaux_status_4" BEL
+        "xadc_vccaux_status_5" BEL "xadc_vccaux_status_6" BEL
+        "xadc_vccaux_status_7" BEL "xadc_vccaux_status_8" BEL
+        "xadc_vccaux_status_9" BEL "xadc_vccaux_status_10" BEL
+        "xadc_vccaux_status_11" BEL "xadc_vccbram_status_0" BEL
+        "xadc_vccbram_status_1" BEL "xadc_vccbram_status_2" BEL
+        "xadc_vccbram_status_3" BEL "xadc_vccbram_status_4" BEL
+        "xadc_vccbram_status_5" BEL "xadc_vccbram_status_6" BEL
+        "xadc_vccbram_status_7" BEL "xadc_vccbram_status_8" BEL
+        "xadc_vccbram_status_9" BEL "xadc_vccbram_status_10" BEL
+        "xadc_vccbram_status_11" BEL "uartwishbonebridge_tx_ready" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_1" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_2" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_3" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_4" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_5" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_6" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_7" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_8" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_9" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_10" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_11" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_12" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_13" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_14" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_16" BEL
+        "uartwishbonebridge_tx_uart_clk_txen" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_2" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_3" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_4" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_5" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_6" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_7" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_8" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_9" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_10" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_11" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_12" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_13" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_14" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_16" BEL
+        "uartwishbonebridge_rx_payload_data_0" BEL
+        "uartwishbonebridge_rx_payload_data_1" BEL
+        "uartwishbonebridge_rx_payload_data_2" BEL
+        "uartwishbonebridge_rx_payload_data_3" BEL
+        "uartwishbonebridge_rx_payload_data_4" BEL
+        "uartwishbonebridge_rx_payload_data_5" BEL
+        "uartwishbonebridge_rx_payload_data_6" BEL
+        "uartwishbonebridge_rx_payload_data_7" BEL
+        "interface1_bank_bus_dat_r_0" BEL "interface1_bank_bus_dat_r_1" BEL
+        "interface1_bank_bus_dat_r_2" BEL "interface1_bank_bus_dat_r_3" BEL
+        "interface1_bank_bus_dat_r_4" BEL "interface9_bank_bus_dat_r_0" BEL
+        "interface9_bank_bus_dat_r_1" BEL "interface9_bank_bus_dat_r_2" BEL
+        "interface9_bank_bus_dat_r_3" BEL "interface9_bank_bus_dat_r_4" BEL
+        "interface9_bank_bus_dat_r_5" BEL "dna_status_0" BEL "dna_status_1"
+        BEL "dna_status_2" BEL "dna_status_3" BEL "dna_status_4" BEL
+        "dna_status_5" BEL "dna_status_6" BEL "dna_status_7" BEL
+        "dna_status_8" BEL "dna_status_9" BEL "dna_status_10" BEL
+        "dna_status_11" BEL "dna_status_12" BEL "dna_status_13" BEL
+        "dna_status_14" BEL "dna_status_15" BEL "dna_status_16" BEL
+        "dna_status_17" BEL "dna_status_18" BEL "dna_status_19" BEL
+        "dna_status_20" BEL "dna_status_21" BEL "dna_status_22" BEL
+        "dna_status_23" BEL "dna_status_24" BEL "dna_status_25" BEL
+        "dna_status_26" BEL "dna_status_27" BEL "dna_status_28" BEL
+        "dna_status_29" BEL "dna_status_30" BEL "dna_status_31" BEL
+        "dna_status_32" BEL "dna_status_33" BEL "dna_status_34" BEL
+        "dna_status_35" BEL "dna_status_36" BEL "dna_status_37" BEL
+        "dna_status_38" BEL "dna_status_39" BEL "dna_status_40" BEL
+        "dna_status_41" BEL "dna_status_42" BEL "dna_status_43" BEL
+        "dna_status_44" BEL "dna_status_45" BEL "dna_status_46" BEL
+        "dna_status_47" BEL "dna_status_48" BEL "dna_status_49" BEL
+        "dna_status_50" BEL "dna_status_51" BEL "dna_status_52" BEL
+        "dna_status_53" BEL "dna_status_54" BEL "dna_status_55" BEL
+        "dna_status_56" BEL "uartwishbonebridge_rx_uart_clk_rxen" BEL
+        "uartwishbonebridge_rx_valid" BEL "uartwishbonebridge_address_0" BEL
+        "uartwishbonebridge_address_1" BEL "uartwishbonebridge_address_2" BEL
+        "uartwishbonebridge_address_3" BEL "uartwishbonebridge_address_4" BEL
+        "uartwishbonebridge_address_5" BEL "uartwishbonebridge_address_6" BEL
+        "uartwishbonebridge_address_7" BEL "uartwishbonebridge_address_8" BEL
+        "uartwishbonebridge_address_9" BEL "uartwishbonebridge_address_10" BEL
+        "uartwishbonebridge_address_11" BEL "uartwishbonebridge_address_12"
+        BEL "uartwishbonebridge_address_13" BEL
+        "uartwishbonebridge_address_14" BEL "uartwishbonebridge_address_15"
+        BEL "uartwishbonebridge_address_16" BEL
+        "uartwishbonebridge_address_17" BEL "uartwishbonebridge_address_18"
+        BEL "uartwishbonebridge_address_19" BEL
+        "uartwishbonebridge_address_20" BEL "uartwishbonebridge_address_21"
+        BEL "uartwishbonebridge_address_22" BEL
+        "uartwishbonebridge_address_23" BEL "uartwishbonebridge_address_24"
+        BEL "uartwishbonebridge_address_25" BEL
+        "uartwishbonebridge_address_26" BEL "uartwishbonebridge_address_27"
+        BEL "uartwishbonebridge_address_28" BEL "uartwishbonebridge_cmd_0" BEL
+        "uartwishbonebridge_cmd_1" BEL "uartwishbonebridge_length_0" BEL
+        "uartwishbonebridge_length_1" BEL "uartwishbonebridge_length_2" BEL
+        "uartwishbonebridge_length_3" BEL "uartwishbonebridge_data_0" BEL
+        "uartwishbonebridge_data_1" BEL "uartwishbonebridge_data_2" BEL
+        "uartwishbonebridge_data_3" BEL "uartwishbonebridge_data_4" BEL
+        "uartwishbonebridge_data_5" BEL "uartwishbonebridge_data_6" BEL
+        "uartwishbonebridge_data_7" BEL "uartwishbonebridge_data_8" BEL
+        "uartwishbonebridge_data_9" BEL "uartwishbonebridge_data_10" BEL
+        "uartwishbonebridge_data_11" BEL "uartwishbonebridge_data_12" BEL
+        "uartwishbonebridge_data_13" BEL "uartwishbonebridge_data_14" BEL
+        "uartwishbonebridge_data_15" BEL "uartwishbonebridge_data_16" BEL
+        "uartwishbonebridge_data_17" BEL "uartwishbonebridge_data_18" BEL
+        "uartwishbonebridge_data_19" BEL "uartwishbonebridge_data_20" BEL
+        "uartwishbonebridge_data_21" BEL "uartwishbonebridge_data_22" BEL
+        "uartwishbonebridge_data_23" BEL "uartwishbonebridge_data_24" BEL
+        "uartwishbonebridge_data_25" BEL "uartwishbonebridge_data_26" BEL
+        "uartwishbonebridge_data_27" BEL "uartwishbonebridge_data_28" BEL
+        "uartwishbonebridge_data_29" BEL "uartwishbonebridge_data_30" BEL
+        "uartwishbonebridge_data_31" BEL "basesoc_interface_dat_w_0" BEL
+        "basesoc_interface_dat_w_1" BEL "basesoc_interface_dat_w_2" BEL
+        "basesoc_interface_dat_w_3" BEL "basesoc_interface_dat_w_4" BEL
+        "basesoc_interface_dat_w_5" BEL "basesoc_interface_dat_w_6" BEL
+        "basesoc_interface_dat_w_7" BEL "basesoc_interface_dat_w_8" BEL
+        "basesoc_interface_dat_w_9" BEL "basesoc_interface_dat_w_10" BEL
+        "basesoc_interface_dat_w_11" BEL "basesoc_interface_dat_w_12" BEL
+        "basesoc_interface_dat_w_13" BEL "basesoc_interface_dat_w_14" BEL
+        "basesoc_interface_dat_w_15" BEL "basesoc_interface_dat_w_16" BEL
+        "basesoc_interface_dat_w_17" BEL "basesoc_interface_dat_w_18" BEL
+        "basesoc_interface_dat_w_19" BEL "basesoc_interface_dat_w_20" BEL
+        "basesoc_interface_dat_w_21" BEL "basesoc_interface_dat_w_22" BEL
+        "basesoc_interface_dat_w_23" BEL "basesoc_interface_dat_w_24" BEL
+        "basesoc_interface_dat_w_25" BEL "basesoc_interface_dat_w_26" BEL
+        "basesoc_interface_dat_w_27" BEL "basesoc_interface_dat_w_28" BEL
+        "basesoc_interface_dat_w_29" BEL "basesoc_interface_dat_w_30" BEL
+        "basesoc_interface_dat_w_31" BEL "adxl362_config_storage_full_0" BEL
+        "adxl362_config_storage_full_1" BEL "adxl362_config_storage_full_2"
+        BEL "adxl362_config_storage_full_3" BEL
+        "adxl362_config_storage_full_4" BEL "adxl362_config_storage_full_5"
+        BEL "adxl362_config_storage_full_6" BEL
+        "adxl362_config_storage_full_7" BEL "adxl362_config_storage_full_8"
+        BEL "adxl362_config_storage_full_9" BEL
+        "adxl362_config_storage_full_10" BEL "adxl362_config_storage_full_11"
+        BEL "adxl362_config_storage_full_12" BEL
+        "adxl362_config_storage_full_13" BEL "adxl362_config_storage_full_14"
+        BEL "adxl362_config_storage_full_15" BEL
+        "adxl362_config_storage_full_16" BEL "adxl362_config_storage_full_17"
+        BEL "adxl362_config_storage_full_18" BEL
+        "adxl362_config_storage_full_19" BEL "adxl362_config_storage_full_20"
+        BEL "adxl362_config_storage_full_21" BEL
+        "adxl362_config_storage_full_22" BEL "adxl362_config_storage_full_23"
+        BEL "adxl362_config_storage_full_24" BEL
+        "adxl362_config_storage_full_25" BEL "adxl362_config_storage_full_26"
+        BEL "adxl362_config_storage_full_27" BEL
+        "adxl362_config_storage_full_28" BEL "adxl362_config_storage_full_29"
+        BEL "adxl362_config_storage_full_30" BEL
+        "adxl362_config_storage_full_31" BEL "adxl362_xfer_storage_full_0" BEL
+        "adxl362_xfer_storage_full_1" BEL "adxl362_xfer_storage_full_2" BEL
+        "adxl362_xfer_storage_full_3" BEL "adxl362_xfer_storage_full_4" BEL
+        "adxl362_xfer_storage_full_5" BEL "adxl362_xfer_storage_full_6" BEL
+        "adxl362_xfer_storage_full_7" BEL "adxl362_xfer_storage_full_8" BEL
+        "adxl362_xfer_storage_full_9" BEL "adxl362_xfer_storage_full_10" BEL
+        "adxl362_xfer_storage_full_11" BEL "adxl362_xfer_storage_full_12" BEL
+        "adxl362_xfer_storage_full_13" BEL "adxl362_xfer_storage_full_14" BEL
+        "adxl362_xfer_storage_full_15" BEL "adxl362_xfer_storage_full_16" BEL
+        "adxl362_xfer_storage_full_17" BEL "adxl362_xfer_storage_full_18" BEL
+        "adxl362_xfer_storage_full_19" BEL "adxl362_xfer_storage_full_20" BEL
+        "adxl362_xfer_storage_full_21" BEL "adxl362_xfer_storage_full_22" BEL
+        "adxl362_xfer_storage_full_23" BEL "adxl362_xfer_storage_full_24" BEL
+        "adxl362_xfer_storage_full_25" BEL "adxl362_xfer_storage_full_26" BEL
+        "adxl362_xfer_storage_full_27" BEL "adxl362_xfer_storage_full_28" BEL
+        "adxl362_xfer_storage_full_29" BEL "adxl362_xfer_storage_full_30" BEL
+        "adxl362_xfer_storage_full_31" BEL "display_value_storage_full_0" BEL
+        "display_value_storage_full_1" BEL "display_value_storage_full_2" BEL
+        "display_value_storage_full_3" BEL "adxl362_mosi_data_storage_full_0"
+        BEL "adxl362_mosi_data_storage_full_1" BEL
+        "adxl362_mosi_data_storage_full_2" BEL
+        "adxl362_mosi_data_storage_full_3" BEL
+        "adxl362_mosi_data_storage_full_4" BEL
+        "adxl362_mosi_data_storage_full_5" BEL
+        "adxl362_mosi_data_storage_full_6" BEL
+        "adxl362_mosi_data_storage_full_7" BEL
+        "adxl362_mosi_data_storage_full_8" BEL
+        "adxl362_mosi_data_storage_full_9" BEL
+        "adxl362_mosi_data_storage_full_10" BEL
+        "adxl362_mosi_data_storage_full_11" BEL
+        "adxl362_mosi_data_storage_full_12" BEL
+        "adxl362_mosi_data_storage_full_13" BEL
+        "adxl362_mosi_data_storage_full_14" BEL
+        "adxl362_mosi_data_storage_full_15" BEL
+        "adxl362_mosi_data_storage_full_16" BEL
+        "adxl362_mosi_data_storage_full_17" BEL
+        "adxl362_mosi_data_storage_full_18" BEL
+        "adxl362_mosi_data_storage_full_19" BEL
+        "adxl362_mosi_data_storage_full_20" BEL
+        "adxl362_mosi_data_storage_full_21" BEL
+        "adxl362_mosi_data_storage_full_22" BEL
+        "adxl362_mosi_data_storage_full_23" BEL
+        "adxl362_mosi_data_storage_full_24" BEL
+        "adxl362_mosi_data_storage_full_25" BEL
+        "adxl362_mosi_data_storage_full_26" BEL
+        "adxl362_mosi_data_storage_full_27" BEL
+        "adxl362_mosi_data_storage_full_28" BEL
+        "adxl362_mosi_data_storage_full_29" BEL
+        "adxl362_mosi_data_storage_full_30" BEL
+        "adxl362_mosi_data_storage_full_31" BEL "display_sel_storage_full_0"
+        BEL "display_sel_storage_full_1" BEL "display_sel_storage_full_2" BEL
+        "display_sel_storage_full_3" BEL "leds_storage_full_0" BEL
+        "leds_storage_full_1" BEL "leds_storage_full_2" BEL
+        "leds_storage_full_3" BEL "leds_storage_full_4" BEL
+        "leds_storage_full_5" BEL "leds_storage_full_6" BEL
+        "leds_storage_full_7" BEL "leds_storage_full_8" BEL
+        "leds_storage_full_9" BEL "leds_storage_full_10" BEL
+        "leds_storage_full_11" BEL "leds_storage_full_12" BEL
+        "leds_storage_full_13" BEL "leds_storage_full_14" BEL
+        "leds_storage_full_15" BEL "probeSPI_config_storage_full_0" BEL
+        "probeSPI_config_storage_full_1" BEL "probeSPI_config_storage_full_2"
+        BEL "probeSPI_config_storage_full_3" BEL
+        "probeSPI_config_storage_full_4" BEL "probeSPI_config_storage_full_5"
+        BEL "probeSPI_config_storage_full_6" BEL
+        "probeSPI_config_storage_full_7" BEL "probeSPI_config_storage_full_8"
+        BEL "probeSPI_config_storage_full_9" BEL
+        "probeSPI_config_storage_full_10" BEL
+        "probeSPI_config_storage_full_11" BEL
+        "probeSPI_config_storage_full_12" BEL
+        "probeSPI_config_storage_full_13" BEL
+        "probeSPI_config_storage_full_14" BEL
+        "probeSPI_config_storage_full_15" BEL
+        "probeSPI_config_storage_full_16" BEL
+        "probeSPI_config_storage_full_17" BEL
+        "probeSPI_config_storage_full_18" BEL
+        "probeSPI_config_storage_full_19" BEL
+        "probeSPI_config_storage_full_20" BEL
+        "probeSPI_config_storage_full_21" BEL
+        "probeSPI_config_storage_full_22" BEL
+        "probeSPI_config_storage_full_23" BEL
+        "probeSPI_config_storage_full_24" BEL
+        "probeSPI_config_storage_full_25" BEL
+        "probeSPI_config_storage_full_26" BEL
+        "probeSPI_config_storage_full_27" BEL
+        "probeSPI_config_storage_full_28" BEL
+        "probeSPI_config_storage_full_29" BEL
+        "probeSPI_config_storage_full_30" BEL
+        "probeSPI_config_storage_full_31" BEL "probeSPI_xfer_storage_full_0"
+        BEL "probeSPI_xfer_storage_full_1" BEL "probeSPI_xfer_storage_full_2"
+        BEL "probeSPI_xfer_storage_full_3" BEL "probeSPI_xfer_storage_full_4"
+        BEL "probeSPI_xfer_storage_full_5" BEL "probeSPI_xfer_storage_full_6"
+        BEL "probeSPI_xfer_storage_full_7" BEL "probeSPI_xfer_storage_full_8"
+        BEL "probeSPI_xfer_storage_full_9" BEL "probeSPI_xfer_storage_full_10"
+        BEL "probeSPI_xfer_storage_full_11" BEL
+        "probeSPI_xfer_storage_full_12" BEL "probeSPI_xfer_storage_full_13"
+        BEL "probeSPI_xfer_storage_full_14" BEL
+        "probeSPI_xfer_storage_full_15" BEL "probeSPI_xfer_storage_full_16"
+        BEL "probeSPI_xfer_storage_full_17" BEL
+        "probeSPI_xfer_storage_full_18" BEL "probeSPI_xfer_storage_full_19"
+        BEL "probeSPI_xfer_storage_full_20" BEL
+        "probeSPI_xfer_storage_full_21" BEL "probeSPI_xfer_storage_full_22"
+        BEL "probeSPI_xfer_storage_full_23" BEL
+        "probeSPI_xfer_storage_full_24" BEL "probeSPI_xfer_storage_full_25"
+        BEL "probeSPI_xfer_storage_full_26" BEL
+        "probeSPI_xfer_storage_full_27" BEL "probeSPI_xfer_storage_full_28"
+        BEL "probeSPI_xfer_storage_full_29" BEL
+        "probeSPI_xfer_storage_full_30" BEL "probeSPI_xfer_storage_full_31"
+        BEL "probeSPI_mosi_data_storage_full_0" BEL
+        "probeSPI_mosi_data_storage_full_1" BEL
+        "probeSPI_mosi_data_storage_full_2" BEL
+        "probeSPI_mosi_data_storage_full_3" BEL
+        "probeSPI_mosi_data_storage_full_4" BEL
+        "probeSPI_mosi_data_storage_full_5" BEL
+        "probeSPI_mosi_data_storage_full_6" BEL
+        "probeSPI_mosi_data_storage_full_7" BEL
+        "probeSPI_mosi_data_storage_full_8" BEL
+        "probeSPI_mosi_data_storage_full_9" BEL
+        "probeSPI_mosi_data_storage_full_10" BEL
+        "probeSPI_mosi_data_storage_full_11" BEL
+        "probeSPI_mosi_data_storage_full_12" BEL
+        "probeSPI_mosi_data_storage_full_13" BEL
+        "probeSPI_mosi_data_storage_full_14" BEL
+        "probeSPI_mosi_data_storage_full_15" BEL
+        "probeSPI_mosi_data_storage_full_16" BEL
+        "probeSPI_mosi_data_storage_full_17" BEL
+        "probeSPI_mosi_data_storage_full_18" BEL
+        "probeSPI_mosi_data_storage_full_19" BEL
+        "probeSPI_mosi_data_storage_full_20" BEL
+        "probeSPI_mosi_data_storage_full_21" BEL
+        "probeSPI_mosi_data_storage_full_22" BEL
+        "probeSPI_mosi_data_storage_full_23" BEL
+        "probeSPI_mosi_data_storage_full_24" BEL
+        "probeSPI_mosi_data_storage_full_25" BEL
+        "probeSPI_mosi_data_storage_full_26" BEL
+        "probeSPI_mosi_data_storage_full_27" BEL
+        "probeSPI_mosi_data_storage_full_28" BEL
+        "probeSPI_mosi_data_storage_full_29" BEL
+        "probeSPI_mosi_data_storage_full_30" BEL
+        "probeSPI_mosi_data_storage_full_31" BEL
+        "probe_PWM_period_storage_full_0" BEL
+        "probe_PWM_period_storage_full_1" BEL
+        "probe_PWM_period_storage_full_2" BEL
+        "probe_PWM_period_storage_full_3" BEL
+        "probe_PWM_period_storage_full_4" BEL
+        "probe_PWM_period_storage_full_5" BEL
+        "probe_PWM_period_storage_full_6" BEL
+        "probe_PWM_period_storage_full_7" BEL
+        "probe_PWM_period_storage_full_8" BEL
+        "probe_PWM_period_storage_full_9" BEL
+        "probe_PWM_period_storage_full_10" BEL
+        "probe_PWM_period_storage_full_11" BEL
+        "probe_PWM_period_storage_full_12" BEL
+        "probe_PWM_period_storage_full_13" BEL
+        "probe_PWM_period_storage_full_14" BEL
+        "probe_PWM_period_storage_full_15" BEL
+        "probe_PWM_period_storage_full_16" BEL
+        "probe_PWM_period_storage_full_17" BEL
+        "probe_PWM_period_storage_full_18" BEL
+        "probe_PWM_period_storage_full_19" BEL
+        "probe_PWM_period_storage_full_20" BEL
+        "probe_PWM_period_storage_full_21" BEL
+        "probe_PWM_period_storage_full_22" BEL
+        "probe_PWM_period_storage_full_23" BEL
+        "probe_PWM_period_storage_full_24" BEL
+        "probe_PWM_period_storage_full_25" BEL
+        "probe_PWM_period_storage_full_26" BEL
+        "probe_PWM_period_storage_full_27" BEL
+        "probe_PWM_period_storage_full_28" BEL
+        "probe_PWM_period_storage_full_29" BEL
+        "probe_PWM_period_storage_full_30" BEL
+        "probe_PWM_period_storage_full_31" BEL
+        "probe_PWM_width_storage_full_0" BEL "probe_PWM_width_storage_full_1"
+        BEL "probe_PWM_width_storage_full_2" BEL
+        "probe_PWM_width_storage_full_3" BEL "probe_PWM_width_storage_full_4"
+        BEL "probe_PWM_width_storage_full_5" BEL
+        "probe_PWM_width_storage_full_6" BEL "probe_PWM_width_storage_full_7"
+        BEL "probe_PWM_width_storage_full_8" BEL
+        "probe_PWM_width_storage_full_9" BEL "probe_PWM_width_storage_full_10"
+        BEL "probe_PWM_width_storage_full_11" BEL
+        "probe_PWM_width_storage_full_12" BEL
+        "probe_PWM_width_storage_full_13" BEL
+        "probe_PWM_width_storage_full_14" BEL
+        "probe_PWM_width_storage_full_15" BEL
+        "probe_PWM_width_storage_full_16" BEL
+        "probe_PWM_width_storage_full_17" BEL
+        "probe_PWM_width_storage_full_18" BEL
+        "probe_PWM_width_storage_full_19" BEL
+        "probe_PWM_width_storage_full_20" BEL
+        "probe_PWM_width_storage_full_21" BEL
+        "probe_PWM_width_storage_full_22" BEL
+        "probe_PWM_width_storage_full_23" BEL
+        "probe_PWM_width_storage_full_24" BEL
+        "probe_PWM_width_storage_full_25" BEL
+        "probe_PWM_width_storage_full_26" BEL
+        "probe_PWM_width_storage_full_27" BEL
+        "probe_PWM_width_storage_full_28" BEL
+        "probe_PWM_width_storage_full_29" BEL
+        "probe_PWM_width_storage_full_30" BEL
+        "probe_PWM_width_storage_full_31" BEL "r_width_storage_full_0" BEL
+        "r_width_storage_full_1" BEL "r_width_storage_full_2" BEL
+        "r_width_storage_full_3" BEL "r_width_storage_full_4" BEL
+        "r_width_storage_full_5" BEL "r_width_storage_full_6" BEL
+        "r_width_storage_full_7" BEL "r_width_storage_full_8" BEL
+        "r_width_storage_full_9" BEL "r_width_storage_full_10" BEL
+        "r_width_storage_full_11" BEL "r_width_storage_full_12" BEL
+        "r_width_storage_full_13" BEL "r_width_storage_full_14" BEL
+        "r_width_storage_full_15" BEL "r_width_storage_full_16" BEL
+        "r_width_storage_full_17" BEL "r_width_storage_full_18" BEL
+        "r_width_storage_full_19" BEL "r_width_storage_full_20" BEL
+        "r_width_storage_full_21" BEL "r_width_storage_full_22" BEL
+        "r_width_storage_full_23" BEL "r_width_storage_full_24" BEL
+        "r_width_storage_full_25" BEL "r_width_storage_full_26" BEL
+        "r_width_storage_full_27" BEL "r_width_storage_full_28" BEL
+        "r_width_storage_full_29" BEL "r_width_storage_full_30" BEL
+        "r_width_storage_full_31" BEL "r_period_storage_full_0" BEL
+        "r_period_storage_full_1" BEL "r_period_storage_full_2" BEL
+        "r_period_storage_full_3" BEL "r_period_storage_full_4" BEL
+        "r_period_storage_full_5" BEL "r_period_storage_full_6" BEL
+        "r_period_storage_full_7" BEL "r_period_storage_full_8" BEL
+        "r_period_storage_full_9" BEL "r_period_storage_full_10" BEL
+        "r_period_storage_full_11" BEL "r_period_storage_full_12" BEL
+        "r_period_storage_full_13" BEL "r_period_storage_full_14" BEL
+        "r_period_storage_full_15" BEL "r_period_storage_full_16" BEL
+        "r_period_storage_full_17" BEL "r_period_storage_full_18" BEL
+        "r_period_storage_full_19" BEL "r_period_storage_full_20" BEL
+        "r_period_storage_full_21" BEL "r_period_storage_full_22" BEL
+        "r_period_storage_full_23" BEL "r_period_storage_full_24" BEL
+        "r_period_storage_full_25" BEL "r_period_storage_full_26" BEL
+        "r_period_storage_full_27" BEL "r_period_storage_full_28" BEL
+        "r_period_storage_full_29" BEL "r_period_storage_full_30" BEL
+        "r_period_storage_full_31" BEL "g_width_storage_full_0" BEL
+        "g_width_storage_full_1" BEL "g_width_storage_full_2" BEL
+        "g_width_storage_full_3" BEL "g_width_storage_full_4" BEL
+        "g_width_storage_full_5" BEL "g_width_storage_full_6" BEL
+        "g_width_storage_full_7" BEL "g_width_storage_full_8" BEL
+        "g_width_storage_full_9" BEL "g_width_storage_full_10" BEL
+        "g_width_storage_full_11" BEL "g_width_storage_full_12" BEL
+        "g_width_storage_full_13" BEL "g_width_storage_full_14" BEL
+        "g_width_storage_full_15" BEL "g_width_storage_full_16" BEL
+        "g_width_storage_full_17" BEL "g_width_storage_full_18" BEL
+        "g_width_storage_full_19" BEL "g_width_storage_full_20" BEL
+        "g_width_storage_full_21" BEL "g_width_storage_full_22" BEL
+        "g_width_storage_full_23" BEL "g_width_storage_full_24" BEL
+        "g_width_storage_full_25" BEL "g_width_storage_full_26" BEL
+        "g_width_storage_full_27" BEL "g_width_storage_full_28" BEL
+        "g_width_storage_full_29" BEL "g_width_storage_full_30" BEL
+        "g_width_storage_full_31" BEL "g_period_storage_full_0" BEL
+        "g_period_storage_full_1" BEL "g_period_storage_full_2" BEL
+        "g_period_storage_full_3" BEL "g_period_storage_full_4" BEL
+        "g_period_storage_full_5" BEL "g_period_storage_full_6" BEL
+        "g_period_storage_full_7" BEL "g_period_storage_full_8" BEL
+        "g_period_storage_full_9" BEL "g_period_storage_full_10" BEL
+        "g_period_storage_full_11" BEL "g_period_storage_full_12" BEL
+        "g_period_storage_full_13" BEL "g_period_storage_full_14" BEL
+        "g_period_storage_full_15" BEL "g_period_storage_full_16" BEL
+        "g_period_storage_full_17" BEL "g_period_storage_full_18" BEL
+        "g_period_storage_full_19" BEL "g_period_storage_full_20" BEL
+        "g_period_storage_full_21" BEL "g_period_storage_full_22" BEL
+        "g_period_storage_full_23" BEL "g_period_storage_full_24" BEL
+        "g_period_storage_full_25" BEL "g_period_storage_full_26" BEL
+        "g_period_storage_full_27" BEL "g_period_storage_full_28" BEL
+        "g_period_storage_full_29" BEL "g_period_storage_full_30" BEL
+        "g_period_storage_full_31" BEL "b_width_storage_full_0" BEL
+        "b_width_storage_full_1" BEL "b_width_storage_full_2" BEL
+        "b_width_storage_full_3" BEL "b_width_storage_full_4" BEL
+        "b_width_storage_full_5" BEL "b_width_storage_full_6" BEL
+        "b_width_storage_full_7" BEL "b_width_storage_full_8" BEL
+        "b_width_storage_full_9" BEL "b_width_storage_full_10" BEL
+        "b_width_storage_full_11" BEL "b_width_storage_full_12" BEL
+        "b_width_storage_full_13" BEL "b_width_storage_full_14" BEL
+        "b_width_storage_full_15" BEL "b_width_storage_full_16" BEL
+        "b_width_storage_full_17" BEL "b_width_storage_full_18" BEL
+        "b_width_storage_full_19" BEL "b_width_storage_full_20" BEL
+        "b_width_storage_full_21" BEL "b_width_storage_full_22" BEL
+        "b_width_storage_full_23" BEL "b_width_storage_full_24" BEL
+        "b_width_storage_full_25" BEL "b_width_storage_full_26" BEL
+        "b_width_storage_full_27" BEL "b_width_storage_full_28" BEL
+        "b_width_storage_full_29" BEL "b_width_storage_full_30" BEL
+        "b_width_storage_full_31" BEL "b_period_storage_full_0" BEL
+        "b_period_storage_full_1" BEL "b_period_storage_full_2" BEL
+        "b_period_storage_full_3" BEL "b_period_storage_full_4" BEL
+        "b_period_storage_full_5" BEL "b_period_storage_full_6" BEL
+        "b_period_storage_full_7" BEL "b_period_storage_full_8" BEL
+        "b_period_storage_full_9" BEL "b_period_storage_full_10" BEL
+        "b_period_storage_full_11" BEL "b_period_storage_full_12" BEL
+        "b_period_storage_full_13" BEL "b_period_storage_full_14" BEL
+        "b_period_storage_full_15" BEL "b_period_storage_full_16" BEL
+        "b_period_storage_full_17" BEL "b_period_storage_full_18" BEL
+        "b_period_storage_full_19" BEL "b_period_storage_full_20" BEL
+        "b_period_storage_full_21" BEL "b_period_storage_full_22" BEL
+        "b_period_storage_full_23" BEL "b_period_storage_full_24" BEL
+        "b_period_storage_full_25" BEL "b_period_storage_full_26" BEL
+        "b_period_storage_full_27" BEL "b_period_storage_full_28" BEL
+        "b_period_storage_full_29" BEL "b_period_storage_full_30" BEL
+        "b_period_storage_full_31" BEL "basesoc_storage_full_0" BEL
+        "basesoc_storage_full_1" BEL "basesoc_storage_full_2" BEL
+        "basesoc_storage_full_3" BEL "basesoc_storage_full_4" BEL
+        "basesoc_storage_full_5" BEL "basesoc_storage_full_6" BEL
+        "basesoc_storage_full_7" BEL "basesoc_storage_full_8" BEL
+        "basesoc_storage_full_9" BEL "basesoc_storage_full_10" BEL
+        "basesoc_storage_full_11" BEL "basesoc_storage_full_12" BEL
+        "basesoc_storage_full_13" BEL "basesoc_storage_full_14" BEL
+        "basesoc_storage_full_15" BEL "basesoc_storage_full_16" BEL
+        "basesoc_storage_full_17" BEL "basesoc_storage_full_18" BEL
+        "basesoc_storage_full_19" BEL "basesoc_storage_full_20" BEL
+        "basesoc_storage_full_21" BEL "basesoc_storage_full_22" BEL
+        "basesoc_storage_full_23" BEL "basesoc_storage_full_24" BEL
+        "basesoc_storage_full_25" BEL "basesoc_storage_full_26" BEL
+        "basesoc_storage_full_27" BEL "basesoc_storage_full_28" BEL
+        "basesoc_storage_full_29" BEL "basesoc_storage_full_30" BEL
+        "basesoc_storage_full_31" BEL "adxl362_spimastercore2_0" BEL
+        "adxl362_spimastercore2_1" BEL "adxl362_spimastercore2_2" BEL
+        "adxl362_spimastercore2_3" BEL "adxl362_spimastercore2_4" BEL
+        "adxl362_spimastercore2_5" BEL "adxl362_spimastercore2_6" BEL
+        "adxl362_spimastercore2_7" BEL "adxl362_spimastercore2_8" BEL
+        "adxl362_spimastercore2_9" BEL "adxl362_spimastercore2_10" BEL
+        "adxl362_spimastercore2_11" BEL "adxl362_spimastercore2_12" BEL
+        "adxl362_spimastercore2_13" BEL "adxl362_spimastercore2_14" BEL
+        "adxl362_spimastercore2_15" BEL "adxl362_spimastercore2_16" BEL
+        "adxl362_spimastercore2_17" BEL "adxl362_spimastercore2_18" BEL
+        "adxl362_spimastercore2_19" BEL "adxl362_spimastercore2_20" BEL
+        "adxl362_spimastercore2_21" BEL "adxl362_spimastercore2_22" BEL
+        "adxl362_spimastercore2_23" BEL "adxl362_spimastercore2_24" BEL
+        "adxl362_spimastercore2_25" BEL "adxl362_spimastercore2_26" BEL
+        "adxl362_spimastercore2_27" BEL "adxl362_spimastercore2_28" BEL
+        "adxl362_spimastercore2_29" BEL "adxl362_spimastercore2_30" BEL
+        "adxl362_spimastercore2_31" BEL "display_values0_0" BEL
+        "display_values0_1" BEL "display_values0_2" BEL "display_values0_3"
+        BEL "display_values1_0" BEL "display_values1_1" BEL
+        "display_values1_2" BEL "display_values1_3" BEL "display_values4_0"
+        BEL "display_values4_1" BEL "display_values4_2" BEL
+        "display_values4_3" BEL "display_values2_0" BEL "display_values2_1"
+        BEL "display_values2_2" BEL "display_values2_3" BEL
+        "display_values3_0" BEL "display_values3_1" BEL "display_values3_2"
+        BEL "display_values3_3" BEL "display_values5_0" BEL
+        "display_values5_1" BEL "display_values5_2" BEL "display_values5_3"
+        BEL "probeSPI_spimastercore2_0" BEL "probeSPI_spimastercore2_1" BEL
+        "probeSPI_spimastercore2_2" BEL "probeSPI_spimastercore2_3" BEL
+        "probeSPI_spimastercore2_4" BEL "probeSPI_spimastercore2_5" BEL
+        "probeSPI_spimastercore2_6" BEL "probeSPI_spimastercore2_7" BEL
+        "probeSPI_spimastercore2_8" BEL "probeSPI_spimastercore2_9" BEL
+        "probeSPI_spimastercore2_10" BEL "probeSPI_spimastercore2_11" BEL
+        "probeSPI_spimastercore2_12" BEL "probeSPI_spimastercore2_13" BEL
+        "probeSPI_spimastercore2_14" BEL "probeSPI_spimastercore2_15" BEL
+        "probeSPI_spimastercore2_16" BEL "probeSPI_spimastercore2_17" BEL
+        "probeSPI_spimastercore2_18" BEL "probeSPI_spimastercore2_19" BEL
+        "probeSPI_spimastercore2_20" BEL "probeSPI_spimastercore2_21" BEL
+        "probeSPI_spimastercore2_22" BEL "probeSPI_spimastercore2_23" BEL
+        "probeSPI_spimastercore2_24" BEL "probeSPI_spimastercore2_25" BEL
+        "probeSPI_spimastercore2_26" BEL "probeSPI_spimastercore2_27" BEL
+        "probeSPI_spimastercore2_28" BEL "probeSPI_spimastercore2_29" BEL
+        "probeSPI_spimastercore2_30" BEL "probeSPI_spimastercore2_31" BEL
+        "interface5_bank_bus_dat_r_0" BEL "interface5_bank_bus_dat_r_1" BEL
+        "interface5_bank_bus_dat_r_2" BEL "interface5_bank_bus_dat_r_3" BEL
+        "interface5_bank_bus_dat_r_4" BEL "interface5_bank_bus_dat_r_5" BEL
+        "interface5_bank_bus_dat_r_6" BEL "interface5_bank_bus_dat_r_12" BEL
+        "interface5_bank_bus_dat_r_13" BEL "interface5_bank_bus_dat_r_14" BEL
+        "interface5_bank_bus_dat_r_15" BEL
+        "adxl362_spimastercore_spimachine_n_write_0" BEL
+        "adxl362_spimastercore_spimachine_n_write_1" BEL
+        "adxl362_spimastercore_spimachine_n_write_2" BEL
+        "adxl362_spimastercore_spimachine_n_write_3" BEL
+        "adxl362_spimastercore_spimachine_n_write_4" BEL
+        "adxl362_spimastercore_spimachine_n_write_5" BEL
+        "probeSPI_spimastercore_spimachine_n_write_0" BEL
+        "probeSPI_spimastercore_spimachine_n_write_1" BEL
+        "probeSPI_spimastercore_spimachine_n_write_2" BEL
+        "probeSPI_spimastercore_spimachine_n_write_3" BEL
+        "probeSPI_spimastercore_spimachine_n_write_4" BEL
+        "probeSPI_spimastercore_spimachine_n_write_5" BEL "r_count_0" BEL
+        "r_count_1" BEL "r_count_2" BEL "r_count_3" BEL "r_count_4" BEL
+        "r_count_5" BEL "r_count_6" BEL "r_count_7" BEL "r_count_8" BEL
+        "r_count_9" BEL "r_count_10" BEL "r_count_11" BEL "r_count_12" BEL
+        "r_count_13" BEL "r_count_14" BEL "r_count_15" BEL "r_count_16" BEL
+        "r_count_17" BEL "r_count_18" BEL "r_count_19" BEL "r_count_20" BEL
+        "r_count_21" BEL "r_count_22" BEL "r_count_23" BEL "r_count_24" BEL
+        "r_count_25" BEL "r_count_26" BEL "r_count_27" BEL "r_count_28" BEL
+        "r_count_29" BEL "g_count_0" BEL "g_count_1" BEL "g_count_2" BEL
+        "g_count_3" BEL "g_count_4" BEL "g_count_5" BEL "g_count_6" BEL
+        "g_count_7" BEL "g_count_8" BEL "g_count_9" BEL "g_count_10" BEL
+        "g_count_11" BEL "g_count_12" BEL "g_count_13" BEL "g_count_14" BEL
+        "g_count_15" BEL "g_count_16" BEL "g_count_17" BEL "g_count_18" BEL
+        "g_count_19" BEL "g_count_20" BEL "g_count_21" BEL "g_count_22" BEL
+        "g_count_23" BEL "g_count_24" BEL "g_count_25" BEL "g_count_26" BEL
+        "g_count_27" BEL "g_count_28" BEL "g_count_29" BEL "b_count_0" BEL
+        "b_count_1" BEL "b_count_2" BEL "b_count_3" BEL "b_count_4" BEL
+        "b_count_5" BEL "b_count_6" BEL "b_count_7" BEL "b_count_8" BEL
+        "b_count_9" BEL "b_count_10" BEL "b_count_11" BEL "b_count_12" BEL
+        "b_count_13" BEL "b_count_14" BEL "b_count_15" BEL "b_count_16" BEL
+        "b_count_17" BEL "b_count_18" BEL "b_count_19" BEL "b_count_20" BEL
+        "b_count_21" BEL "b_count_22" BEL "b_count_23" BEL "b_count_24" BEL
+        "b_count_25" BEL "b_count_26" BEL "b_count_27" BEL "b_count_28" BEL
+        "b_count_29" BEL "probe_PWM_count_0" BEL "probe_PWM_count_1" BEL
+        "probe_PWM_count_2" BEL "probe_PWM_count_3" BEL "probe_PWM_count_4"
+        BEL "probe_PWM_count_5" BEL "probe_PWM_count_6" BEL
+        "probe_PWM_count_7" BEL "probe_PWM_count_8" BEL "probe_PWM_count_9"
+        BEL "probe_PWM_count_10" BEL "probe_PWM_count_11" BEL
+        "probe_PWM_count_12" BEL "probe_PWM_count_13" BEL "probe_PWM_count_14"
+        BEL "probe_PWM_count_15" BEL "probe_PWM_count_16" BEL
+        "probe_PWM_count_17" BEL "probe_PWM_count_18" BEL "probe_PWM_count_19"
+        BEL "probe_PWM_count_20" BEL "probe_PWM_count_21" BEL
+        "probe_PWM_count_22" BEL "probe_PWM_count_23" BEL "probe_PWM_count_24"
+        BEL "probe_PWM_count_25" BEL "probe_PWM_count_26" BEL
+        "probe_PWM_count_27" BEL "probe_PWM_count_28" BEL "probe_PWM_count_29"
+        BEL "adxl362_spimastercore_spimachine_n_read_1" BEL
+        "adxl362_spimastercore_spimachine_n_read_2" BEL
+        "adxl362_spimastercore_spimachine_n_read_3" BEL
+        "adxl362_spimastercore_spimachine_n_read_4" BEL
+        "adxl362_spimastercore_spimachine_n_read_5" BEL
+        "probeSPI_spimastercore_spimachine_n_read_1" BEL
+        "probeSPI_spimastercore_spimachine_n_read_2" BEL
+        "probeSPI_spimastercore_spimachine_n_read_3" BEL
+        "probeSPI_spimastercore_spimachine_n_read_4" BEL
+        "probeSPI_spimastercore_spimachine_n_read_5" BEL
+        "basesoc_interface_adr_0" BEL "basesoc_interface_adr_1" BEL
+        "basesoc_interface_adr_2" BEL "basesoc_interface_adr_3" BEL
+        "basesoc_interface_adr_4" BEL "basesoc_interface_adr_5" BEL
+        "basesoc_interface_adr_9" BEL "basesoc_interface_adr_10" BEL
+        "basesoc_interface_adr_11" BEL "basesoc_interface_adr_12" BEL
+        "basesoc_interface_adr_13" BEL "memadr_1_0" BEL "memadr_1_1" BEL
+        "memadr_1_2" BEL "memadr_1_3" BEL "memadr_1_4" BEL "memadr_1_5" BEL
+        "user_rgb_led0_r" BEL "user_rgb_led0_g" BEL "user_rgb_led0_b" BEL
+        "out_probe0" BEL "uartwishbonebridge_tx_tx_reg_0" BEL
+        "adxl362_spimastercore1_0" BEL "adxl362_spimastercore1_1" BEL
+        "adxl362_spimastercore1_2" BEL "adxl362_spimastercore1_3" BEL
+        "adxl362_spimastercore1_4" BEL "adxl362_spimastercore1_5" BEL
+        "adxl362_spimastercore1_6" BEL "adxl362_spimastercore1_7" BEL
+        "adxl362_spimastercore1_8" BEL "adxl362_spimastercore1_9" BEL
+        "adxl362_spimastercore1_10" BEL "adxl362_spimastercore1_11" BEL
+        "adxl362_spimastercore1_12" BEL "adxl362_spimastercore1_13" BEL
+        "adxl362_spimastercore1_14" BEL "adxl362_spimastercore1_15" BEL
+        "adxl362_spimastercore1_16" BEL "adxl362_spimastercore1_17" BEL
+        "adxl362_spimastercore1_18" BEL "adxl362_spimastercore1_19" BEL
+        "adxl362_spimastercore1_20" BEL "adxl362_spimastercore1_21" BEL
+        "adxl362_spimastercore1_22" BEL "adxl362_spimastercore1_23" BEL
+        "adxl362_spimastercore1_24" BEL "adxl362_spimastercore1_25" BEL
+        "adxl362_spimastercore1_26" BEL "adxl362_spimastercore1_27" BEL
+        "adxl362_spimastercore1_28" BEL "adxl362_spimastercore1_29" BEL
+        "adxl362_spimastercore1_30" BEL "adxl362_spimastercore1_31" BEL
+        "probeSPI_spimastercore1_0" BEL "probeSPI_spimastercore1_1" BEL
+        "probeSPI_spimastercore1_2" BEL "probeSPI_spimastercore1_3" BEL
+        "probeSPI_spimastercore1_4" BEL "probeSPI_spimastercore1_5" BEL
+        "probeSPI_spimastercore1_6" BEL "probeSPI_spimastercore1_7" BEL
+        "probeSPI_spimastercore1_8" BEL "probeSPI_spimastercore1_9" BEL
+        "probeSPI_spimastercore1_10" BEL "probeSPI_spimastercore1_11" BEL
+        "probeSPI_spimastercore1_12" BEL "probeSPI_spimastercore1_13" BEL
+        "probeSPI_spimastercore1_14" BEL "probeSPI_spimastercore1_15" BEL
+        "probeSPI_spimastercore1_16" BEL "probeSPI_spimastercore1_17" BEL
+        "probeSPI_spimastercore1_18" BEL "probeSPI_spimastercore1_19" BEL
+        "probeSPI_spimastercore1_20" BEL "probeSPI_spimastercore1_21" BEL
+        "probeSPI_spimastercore1_22" BEL "probeSPI_spimastercore1_23" BEL
+        "probeSPI_spimastercore1_24" BEL "probeSPI_spimastercore1_25" BEL
+        "probeSPI_spimastercore1_26" BEL "probeSPI_spimastercore1_27" BEL
+        "probeSPI_spimastercore1_28" BEL "probeSPI_spimastercore1_29" BEL
+        "probeSPI_spimastercore1_30" BEL "probeSPI_spimastercore1_31" BEL
+        "interface2_bank_bus_dat_r_0" BEL "interface2_bank_bus_dat_r_1" BEL
+        "interface2_bank_bus_dat_r_2" BEL "interface2_bank_bus_dat_r_3" BEL
+        "interface2_bank_bus_dat_r_4" BEL "interface2_bank_bus_dat_r_5" BEL
+        "interface2_bank_bus_dat_r_6" BEL "interface2_bank_bus_dat_r_7" BEL
+        "interface2_bank_bus_dat_r_8" BEL "interface2_bank_bus_dat_r_9" BEL
+        "interface2_bank_bus_dat_r_10" BEL "interface2_bank_bus_dat_r_11" BEL
+        "interface2_bank_bus_dat_r_16" BEL "interface2_bank_bus_dat_r_17" BEL
+        "interface2_bank_bus_dat_r_18" BEL "interface2_bank_bus_dat_r_19" BEL
+        "interface2_bank_bus_dat_r_20" BEL "interface2_bank_bus_dat_r_21" BEL
+        "interface2_bank_bus_dat_r_22" BEL "interface2_bank_bus_dat_r_23" BEL
+        "interface2_bank_bus_dat_r_24" BEL "interface2_bank_bus_dat_r_25" BEL
+        "interface2_bank_bus_dat_r_26" BEL "interface2_bank_bus_dat_r_27" BEL
+        "interface2_bank_bus_dat_r_28" BEL "interface3_bank_bus_dat_r_0" BEL
+        "interface3_bank_bus_dat_r_1" BEL "interface3_bank_bus_dat_r_2" BEL
+        "interface3_bank_bus_dat_r_3" BEL "interface4_bank_bus_dat_r_0" BEL
+        "interface4_bank_bus_dat_r_1" BEL "interface4_bank_bus_dat_r_2" BEL
+        "interface4_bank_bus_dat_r_3" BEL "interface4_bank_bus_dat_r_4" BEL
+        "interface4_bank_bus_dat_r_5" BEL "interface4_bank_bus_dat_r_6" BEL
+        "interface4_bank_bus_dat_r_7" BEL "interface4_bank_bus_dat_r_8" BEL
+        "interface4_bank_bus_dat_r_9" BEL "interface4_bank_bus_dat_r_10" BEL
+        "interface4_bank_bus_dat_r_11" BEL "interface4_bank_bus_dat_r_12" BEL
+        "interface4_bank_bus_dat_r_13" BEL "interface4_bank_bus_dat_r_14" BEL
+        "interface4_bank_bus_dat_r_15" BEL "interface4_bank_bus_dat_r_16" BEL
+        "interface4_bank_bus_dat_r_17" BEL "interface4_bank_bus_dat_r_18" BEL
+        "interface4_bank_bus_dat_r_19" BEL "interface4_bank_bus_dat_r_20" BEL
+        "interface4_bank_bus_dat_r_21" BEL "interface4_bank_bus_dat_r_22" BEL
+        "interface4_bank_bus_dat_r_23" BEL "interface4_bank_bus_dat_r_24" BEL
+        "interface4_bank_bus_dat_r_25" BEL "interface4_bank_bus_dat_r_26" BEL
+        "interface4_bank_bus_dat_r_27" BEL "interface4_bank_bus_dat_r_28" BEL
+        "interface4_bank_bus_dat_r_29" BEL "interface4_bank_bus_dat_r_30" BEL
+        "interface4_bank_bus_dat_r_31" BEL "interface7_bank_bus_dat_r_0" BEL
+        "interface7_bank_bus_dat_r_1" BEL "interface7_bank_bus_dat_r_2" BEL
+        "interface7_bank_bus_dat_r_3" BEL "interface7_bank_bus_dat_r_4" BEL
+        "interface7_bank_bus_dat_r_5" BEL "interface7_bank_bus_dat_r_6" BEL
+        "interface7_bank_bus_dat_r_16" BEL "interface7_bank_bus_dat_r_17" BEL
+        "interface7_bank_bus_dat_r_18" BEL "interface7_bank_bus_dat_r_19" BEL
+        "interface7_bank_bus_dat_r_20" BEL "interface7_bank_bus_dat_r_21" BEL
+        "interface7_bank_bus_dat_r_22" BEL "interface7_bank_bus_dat_r_23" BEL
+        "interface7_bank_bus_dat_r_24" BEL "interface7_bank_bus_dat_r_25" BEL
+        "interface7_bank_bus_dat_r_26" BEL "interface7_bank_bus_dat_r_27" BEL
+        "interface7_bank_bus_dat_r_28" BEL "interface7_bank_bus_dat_r_29" BEL
+        "interface7_bank_bus_dat_r_30" BEL "interface7_bank_bus_dat_r_31" BEL
+        "interface8_bank_bus_dat_r_0" BEL "interface10_bank_bus_dat_r_0" BEL
+        "interface10_bank_bus_dat_r_1" BEL "interface10_bank_bus_dat_r_2" BEL
+        "interface10_bank_bus_dat_r_3" BEL "interface10_bank_bus_dat_r_4" BEL
+        "interface10_bank_bus_dat_r_5" BEL "interface10_bank_bus_dat_r_6" BEL
+        "interface10_bank_bus_dat_r_7" BEL "interface10_bank_bus_dat_r_8" BEL
+        "interface10_bank_bus_dat_r_9" BEL "interface10_bank_bus_dat_r_10" BEL
+        "interface10_bank_bus_dat_r_11" BEL "interface0_bank_bus_dat_r_0" BEL
+        "interface0_bank_bus_dat_r_1" BEL "interface0_bank_bus_dat_r_2" BEL
+        "interface0_bank_bus_dat_r_3" BEL "interface0_bank_bus_dat_r_4" BEL
+        "interface0_bank_bus_dat_r_5" BEL "interface0_bank_bus_dat_r_6" BEL
+        "interface0_bank_bus_dat_r_7" BEL "interface0_bank_bus_dat_r_8" BEL
+        "interface0_bank_bus_dat_r_9" BEL "interface0_bank_bus_dat_r_10" BEL
+        "interface0_bank_bus_dat_r_11" BEL "interface0_bank_bus_dat_r_12" BEL
+        "interface0_bank_bus_dat_r_13" BEL "interface0_bank_bus_dat_r_14" BEL
+        "interface0_bank_bus_dat_r_15" BEL "interface0_bank_bus_dat_r_16" BEL
+        "interface0_bank_bus_dat_r_17" BEL "interface0_bank_bus_dat_r_18" BEL
+        "interface0_bank_bus_dat_r_19" BEL "interface0_bank_bus_dat_r_20" BEL
+        "interface0_bank_bus_dat_r_21" BEL "interface0_bank_bus_dat_r_22" BEL
+        "interface0_bank_bus_dat_r_23" BEL "interface0_bank_bus_dat_r_24" BEL
+        "interface0_bank_bus_dat_r_25" BEL "interface0_bank_bus_dat_r_26" BEL
+        "interface0_bank_bus_dat_r_27" BEL "interface0_bank_bus_dat_r_28" BEL
+        "interface0_bank_bus_dat_r_29" BEL "interface0_bank_bus_dat_r_30" BEL
+        "interface0_bank_bus_dat_r_31" BEL "interface6_bank_bus_dat_r_0" BEL
+        "interface6_bank_bus_dat_r_1" BEL "interface6_bank_bus_dat_r_2" BEL
+        "interface6_bank_bus_dat_r_3" BEL "interface6_bank_bus_dat_r_4" BEL
+        "interface6_bank_bus_dat_r_5" BEL "interface6_bank_bus_dat_r_6" BEL
+        "interface6_bank_bus_dat_r_16" BEL "interface6_bank_bus_dat_r_17" BEL
+        "interface6_bank_bus_dat_r_18" BEL "interface6_bank_bus_dat_r_19" BEL
+        "interface6_bank_bus_dat_r_20" BEL "interface6_bank_bus_dat_r_21" BEL
+        "interface6_bank_bus_dat_r_22" BEL "interface6_bank_bus_dat_r_23" BEL
+        "interface6_bank_bus_dat_r_24" BEL "interface6_bank_bus_dat_r_25" BEL
+        "interface6_bank_bus_dat_r_26" BEL "interface6_bank_bus_dat_r_27" BEL
+        "interface6_bank_bus_dat_r_28" BEL "interface6_bank_bus_dat_r_29" BEL
+        "interface6_bank_bus_dat_r_30" BEL "interface6_bank_bus_dat_r_31" BEL
+        "spimaster1_state_FSM_FFd2" BEL "spimaster0_state_FSM_FFd2" BEL
+        "spimaster0_state_FSM_FFd1" BEL "spimaster1_state_FSM_FFd1" BEL
+        "display_counter_0" BEL "display_counter_1" BEL "display_counter_2"
+        BEL "display_counter_3" BEL "display_counter_4" BEL
+        "display_counter_5" BEL "display_counter_6" BEL "display_counter_7"
+        BEL "display_counter_8" BEL "display_counter_9" BEL
+        "display_counter_10" BEL "display_counter_11" BEL "display_counter_12"
+        BEL "display_counter_13" BEL "display_counter_14" BEL
+        "uartwishbonebridge_tx_tx_bitcount_0" BEL
+        "uartwishbonebridge_tx_tx_bitcount_1" BEL
+        "uartwishbonebridge_tx_tx_bitcount_2" BEL
+        "uartwishbonebridge_tx_tx_bitcount_3" BEL "count_1" BEL
+        "uartwishbonebridge_rx_rx_bitcount_0" BEL
+        "uartwishbonebridge_rx_rx_bitcount_1" BEL
+        "uartwishbonebridge_rx_rx_bitcount_2" BEL
+        "uartwishbonebridge_rx_rx_bitcount_3" BEL "count_0" BEL "count_2" BEL
+        "count_3" BEL "count_6" BEL "count_4" BEL "count_5" BEL "count_9" BEL
+        "count_7" BEL "count_8" BEL "count_12" BEL "count_10" BEL "count_11"
+        BEL "count_15" BEL "count_13" BEL "count_14" BEL
+        "uartwishbonebridge_count_1" BEL "count_16" BEL
+        "uartwishbonebridge_count_0" BEL "uartwishbonebridge_count_4" BEL
+        "uartwishbonebridge_count_2" BEL "uartwishbonebridge_count_3" BEL
+        "uartwishbonebridge_count_7" BEL "uartwishbonebridge_count_5" BEL
+        "uartwishbonebridge_count_6" BEL "uartwishbonebridge_count_8" BEL
+        "uartwishbonebridge_count_9" BEL "uartwishbonebridge_count_12" BEL
+        "uartwishbonebridge_count_10" BEL "uartwishbonebridge_count_11" BEL
+        "uartwishbonebridge_count_15" BEL "uartwishbonebridge_count_13" BEL
+        "uartwishbonebridge_count_14" BEL "uartwishbonebridge_count_18" BEL
+        "uartwishbonebridge_count_16" BEL "uartwishbonebridge_count_17" BEL
+        "uartwishbonebridge_count_21" BEL "uartwishbonebridge_count_19" BEL
+        "uartwishbonebridge_count_20" BEL
+        "adxl362_spimastercore_spimachine_spiclockgen_0" BEL
+        "adxl362_spimastercore_spimachine_spiclockgen_1" BEL
+        "adxl362_spimastercore_spimachine_spiclockgen_2" BEL
+        "adxl362_spimastercore_spimachine_spiclockgen_3" BEL
+        "adxl362_spimastercore_spimachine_spiclockgen_4" BEL
+        "adxl362_spimastercore_spimachine_spiclockgen_5" BEL
+        "adxl362_spimastercore_spimachine_spiclockgen_6" BEL
+        "uartwishbonebridge_count_22" BEL "uartwishbonebridge_count_23" BEL
+        "probeSPI_spimastercore_spimachine_spiclockgen_0" BEL
+        "probeSPI_spimastercore_spimachine_spiclockgen_1" BEL
+        "probeSPI_spimastercore_spimachine_spiclockgen_2" BEL
+        "probeSPI_spimastercore_spimachine_spiclockgen_3" BEL
+        "probeSPI_spimastercore_spimachine_spiclockgen_4" BEL
+        "probeSPI_spimastercore_spimachine_spiclockgen_5" BEL
+        "probeSPI_spimastercore_spimachine_spiclockgen_6" BEL
+        "uartwishbonebridge_state_FSM_FFd1" BEL
+        "uartwishbonebridge_state_FSM_FFd3" BEL
+        "uartwishbonebridge_state_FSM_FFd2" BEL "basesoc_bus_errors_0" BEL
+        "basesoc_bus_errors_1" BEL "basesoc_bus_errors_2" BEL
+        "basesoc_bus_errors_3" BEL "basesoc_bus_errors_4" BEL
+        "basesoc_bus_errors_5" BEL "basesoc_bus_errors_6" BEL
+        "basesoc_bus_errors_7" BEL "basesoc_bus_errors_8" BEL
+        "basesoc_bus_errors_9" BEL "basesoc_bus_errors_10" BEL
+        "basesoc_bus_errors_11" BEL "basesoc_bus_errors_12" BEL
+        "basesoc_bus_errors_13" BEL "basesoc_bus_errors_14" BEL
+        "basesoc_bus_errors_15" BEL "basesoc_bus_errors_16" BEL
+        "basesoc_bus_errors_17" BEL "basesoc_bus_errors_18" BEL
+        "basesoc_bus_errors_19" BEL "basesoc_bus_errors_20" BEL
+        "basesoc_bus_errors_21" BEL "basesoc_bus_errors_22" BEL
+        "basesoc_bus_errors_23" BEL "basesoc_bus_errors_24" BEL
+        "basesoc_bus_errors_25" BEL "basesoc_bus_errors_26" BEL
+        "basesoc_bus_errors_27" BEL "basesoc_bus_errors_28" BEL
+        "basesoc_bus_errors_29" BEL "basesoc_bus_errors_30" BEL
+        "basesoc_bus_errors_31" BEL "dna_cnt_0" BEL "dna_cnt_1" BEL
+        "dna_cnt_2" BEL "dna_cnt_3" BEL "dna_cnt_4" BEL "dna_cnt_5" BEL
+        "dna_cnt_6" BEL "uartwishbonebridge_word_counter_0" BEL
+        "uartwishbonebridge_word_counter_1" BEL
+        "uartwishbonebridge_word_counter_2" PIN "XADC_pins<14>" BEL
+        "uartwishbonebridge_tx_tx_busy" BEL "uartwishbonebridge_rx_rx_busy"
+        BEL "serial_tx" BEL
+        "adxl362_spimastercore_spimachine_spiclockgen_bias1" BEL
+        "probeSPI_spimastercore_spimachine_spiclockgen_bias1" BEL
+        "adxl362_spimastercore_spimachine_spiclockgen_clk" BEL
+        "probeSPI_spimastercore_spimachine_spiclockgen_clk" BEL
+        "basesoc_wishbone2csr_ack" BEL "probe_PWM_enable_storage_full" BEL
+        "basesoc_sram_bus_ack" BEL "basesoc_interface_we" BEL
+        "basesoc_wishbone2csr_counter_1" BEL
+        "adxl362_spimastercore_spimachine_n_read_0" BEL
+        "probeSPI_spimastercore_spimachine_n_read_0" BEL
+        "uartwishbonebridge_byte_counter_0" BEL
+        "uartwishbonebridge_byte_counter_1" BEL
+        "uartwishbonebridge_byte_counter_2" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_30_BRB0" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_30_BRB1" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_31_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_30_BRB0" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_30_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_31_BRB0" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_31_BRB1" BEL
+        "interface8_bank_bus_dat_r_1_BRB0" BEL
+        "interface8_bank_bus_dat_r_1_BRB1" BEL
+        "interface8_bank_bus_dat_r_2_BRB1" BEL
+        "interface8_bank_bus_dat_r_3_BRB1" BEL
+        "interface8_bank_bus_dat_r_4_BRB1" BEL
+        "interface8_bank_bus_dat_r_5_BRB1" BEL
+        "interface8_bank_bus_dat_r_6_BRB1" BEL
+        "interface8_bank_bus_dat_r_7_BRB1" BEL
+        "interface8_bank_bus_dat_r_8_BRB1" BEL
+        "interface8_bank_bus_dat_r_9_BRB1" BEL
+        "interface8_bank_bus_dat_r_10_BRB1" BEL
+        "interface8_bank_bus_dat_r_11_BRB1" BEL
+        "interface8_bank_bus_dat_r_12_BRB1" BEL
+        "interface8_bank_bus_dat_r_13_BRB1" BEL
+        "interface8_bank_bus_dat_r_14_BRB1" BEL
+        "interface8_bank_bus_dat_r_15_BRB1" BEL
+        "interface8_bank_bus_dat_r_16_BRB1" BEL
+        "interface8_bank_bus_dat_r_17_BRB1" BEL
+        "interface8_bank_bus_dat_r_18_BRB1" BEL
+        "interface8_bank_bus_dat_r_19_BRB1" BEL
+        "interface8_bank_bus_dat_r_20_BRB1" BEL
+        "interface8_bank_bus_dat_r_21_BRB1" BEL
+        "interface8_bank_bus_dat_r_22_BRB1" BEL
+        "interface8_bank_bus_dat_r_23_BRB1" BEL
+        "interface8_bank_bus_dat_r_24_BRB1" BEL
+        "interface8_bank_bus_dat_r_25_BRB1" BEL
+        "interface8_bank_bus_dat_r_26_BRB1" BEL
+        "interface8_bank_bus_dat_r_27_BRB1" BEL
+        "interface8_bank_bus_dat_r_28_BRB1" BEL
+        "interface8_bank_bus_dat_r_29_BRB1" BEL
+        "interface8_bank_bus_dat_r_30_BRB1" BEL
+        "interface8_bank_bus_dat_r_31_BRB1" BEL "slave_sel_r_0_BRB0" BEL
+        "slave_sel_r_0_BRB1" BEL "slave_sel_r_0_BRB2" BEL "slave_sel_r_1_BRB0"
+        BEL "adxl362_spimastercore0_0_BRB0" BEL
+        "adxl362_spimastercore0_0_BRB1" BEL "adxl362_spimastercore0_0_BRB2"
+        BEL "probeSPI_spimastercore0_0_BRB0" BEL
+        "probeSPI_spimastercore0_0_BRB1" BEL "probeSPI_spimastercore0_0_BRB2"
+        BEL "adxl362_spimastercore_spimachine_write0_BRB1" BEL
+        "adxl362_spimastercore_spimachine_write0_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_write0_BRB1" BEL
+        "probeSPI_spimastercore_spimachine_write0_BRB2" BEL
+        "basesoc_wishbone2csr_dat_r_4_BRB0" BEL
+        "basesoc_wishbone2csr_dat_r_4_BRB1" BEL
+        "basesoc_wishbone2csr_dat_r_4_BRB2" BEL
+        "basesoc_wishbone2csr_dat_r_4_BRB3" BEL
+        "basesoc_wishbone2csr_dat_r_4_BRB4" BEL
+        "basesoc_wishbone2csr_dat_r_4_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_0_BRB0" BEL
+        "adxl362_spimastercore_spimachine_data_0_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_0_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_1_BRB0" BEL
+        "adxl362_spimastercore_spimachine_data_1_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_1_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_1_BRB4" BEL
+        "adxl362_spimastercore_spimachine_data_1_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_2_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_2_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_2_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_3_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_3_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_3_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_4_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_4_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_4_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_5_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_5_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_5_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_6_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_6_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_6_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_7_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_7_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_7_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_8_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_8_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_8_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_9_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_9_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_9_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_10_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_10_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_10_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_11_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_11_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_11_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_12_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_12_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_12_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_13_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_13_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_13_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_14_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_14_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_14_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_15_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_15_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_15_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_16_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_16_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_16_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_17_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_17_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_17_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_18_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_18_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_18_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_19_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_19_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_19_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_20_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_20_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_20_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_21_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_21_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_21_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_22_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_22_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_22_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_23_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_23_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_23_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_24_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_24_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_24_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_25_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_25_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_25_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_26_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_26_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_26_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_27_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_27_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_27_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_28_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_28_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_28_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_29_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_29_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_29_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_30_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_30_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_30_BRB5" BEL
+        "adxl362_spimastercore_spimachine_data_31_BRB2" BEL
+        "adxl362_spimastercore_spimachine_data_31_BRB3" BEL
+        "adxl362_spimastercore_spimachine_data_31_BRB4" BEL
+        "adxl362_spimastercore_spimachine_data_31_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_0_BRB0" BEL
+        "probeSPI_spimastercore_spimachine_data_0_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_0_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_1_BRB0" BEL
+        "probeSPI_spimastercore_spimachine_data_1_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_1_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_1_BRB4" BEL
+        "probeSPI_spimastercore_spimachine_data_1_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_2_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_2_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_2_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_3_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_3_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_3_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_4_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_4_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_4_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_5_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_5_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_5_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_6_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_6_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_6_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_7_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_7_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_7_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_8_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_8_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_8_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_9_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_9_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_9_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_10_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_10_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_10_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_11_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_11_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_11_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_12_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_12_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_12_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_13_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_13_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_13_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_14_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_14_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_14_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_15_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_15_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_15_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_16_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_16_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_16_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_17_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_17_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_17_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_18_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_18_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_18_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_19_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_19_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_19_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_20_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_20_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_20_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_21_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_21_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_21_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_22_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_22_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_22_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_23_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_23_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_23_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_24_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_24_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_24_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_25_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_25_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_25_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_26_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_26_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_26_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_27_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_27_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_27_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_28_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_28_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_28_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_29_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_29_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_29_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_30_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_30_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_30_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_data_31_BRB2" BEL
+        "probeSPI_spimastercore_spimachine_data_31_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_data_31_BRB4" BEL
+        "probeSPI_spimastercore_spimachine_data_31_BRB5" BEL
+        "basesoc_wishbone2csr_counter_0_BRB0" BEL
+        "basesoc_wishbone2csr_counter_0_BRB1" BEL
+        "basesoc_wishbone2csr_counter_0_BRB2" BEL
+        "basesoc_wishbone2csr_counter_0_BRB5" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_29_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_29_BRB1" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_28_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_28_BRB1" BEL
+        "adxl362_spimastercore_pending1_BRB0" BEL
+        "adxl362_spimastercore_pending1_BRB2" BEL
+        "probeSPI_spimastercore_pending1_BRB0" BEL
+        "probeSPI_spimastercore_pending1_BRB2" BEL
+        "r_enable_storage_full_BRB0" BEL "r_enable_storage_full_BRB1" BEL
+        "r_enable_storage_full_BRB2" BEL "g_enable_storage_full_BRB0" BEL
+        "g_enable_storage_full_BRB1" BEL "b_enable_storage_full_BRB0" BEL
+        "b_enable_storage_full_BRB1" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_27_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_27_BRB1" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_26_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_26_BRB1" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_25_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_25_BRB1" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_24_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_24_BRB1" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_23_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_23_BRB1" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_21_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_21_BRB1" BEL
+        "r_count_31_BRB0" BEL "r_count_31_BRB1" BEL "r_count_31_BRB2" BEL
+        "g_count_31_BRB0" BEL "g_count_31_BRB1" BEL "g_count_31_BRB2" BEL
+        "b_count_31_BRB0" BEL "b_count_31_BRB1" BEL "b_count_31_BRB2" BEL
+        "probe_PWM_count_31_BRB0" BEL "probe_PWM_count_31_BRB1" BEL
+        "probe_PWM_count_31_BRB2" BEL "r_count_30_BRB0" BEL "g_count_30_BRB0"
+        BEL "b_count_30_BRB0" BEL "probe_PWM_count_30_BRB0" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_20_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_20_BRB1" BEL
+        "uartwishbonebridge_tx_tx_reg_7_BRB0" BEL
+        "uartwishbonebridge_tx_tx_reg_7_BRB1" BEL
+        "uartwishbonebridge_tx_tx_reg_7_BRB2" BEL
+        "uartwishbonebridge_tx_tx_reg_7_BRB3" BEL
+        "uartwishbonebridge_tx_tx_reg_1_BRB2" BEL
+        "uartwishbonebridge_tx_tx_reg_1_BRB3" BEL
+        "uartwishbonebridge_tx_tx_reg_1_BRB4" BEL
+        "uartwishbonebridge_tx_tx_reg_2_BRB2" BEL
+        "uartwishbonebridge_tx_tx_reg_2_BRB3" BEL
+        "uartwishbonebridge_tx_tx_reg_2_BRB4" BEL
+        "uartwishbonebridge_tx_tx_reg_3_BRB2" BEL
+        "uartwishbonebridge_tx_tx_reg_3_BRB3" BEL
+        "uartwishbonebridge_tx_tx_reg_3_BRB4" BEL
+        "uartwishbonebridge_tx_tx_reg_4_BRB2" BEL
+        "uartwishbonebridge_tx_tx_reg_4_BRB3" BEL
+        "uartwishbonebridge_tx_tx_reg_4_BRB4" BEL
+        "uartwishbonebridge_tx_tx_reg_5_BRB2" BEL
+        "uartwishbonebridge_tx_tx_reg_5_BRB3" BEL
+        "uartwishbonebridge_tx_tx_reg_5_BRB4" BEL
+        "uartwishbonebridge_tx_tx_reg_6_BRB2" BEL
+        "uartwishbonebridge_tx_tx_reg_6_BRB3" BEL
+        "uartwishbonebridge_tx_tx_reg_6_BRB4" BEL
+        "interface2_bank_bus_dat_r_31_BRB0" BEL
+        "interface2_bank_bus_dat_r_31_BRB3" BEL
+        "interface2_bank_bus_dat_r_31_BRB4" BEL
+        "basesoc_wishbone2csr_dat_r_6_BRB0" BEL
+        "basesoc_wishbone2csr_dat_r_6_BRB1" BEL
+        "basesoc_wishbone2csr_dat_r_6_BRB2" BEL
+        "basesoc_wishbone2csr_dat_r_6_BRB3" BEL
+        "basesoc_wishbone2csr_dat_r_6_BRB4" BEL
+        "basesoc_wishbone2csr_dat_r_6_BRB5" BEL
+        "basesoc_wishbone2csr_dat_r_7_BRB0" BEL
+        "basesoc_wishbone2csr_dat_r_7_BRB1" BEL
+        "basesoc_wishbone2csr_dat_r_7_BRB2" BEL
+        "basesoc_wishbone2csr_dat_r_7_BRB3" BEL
+        "basesoc_wishbone2csr_dat_r_7_BRB4" BEL
+        "basesoc_wishbone2csr_dat_r_7_BRB5" BEL
+        "basesoc_wishbone2csr_dat_r_8_BRB0" BEL
+        "basesoc_wishbone2csr_dat_r_8_BRB1" BEL
+        "basesoc_wishbone2csr_dat_r_8_BRB2" BEL
+        "basesoc_wishbone2csr_dat_r_8_BRB3" BEL
+        "basesoc_wishbone2csr_dat_r_8_BRB4" BEL
+        "basesoc_wishbone2csr_dat_r_8_BRB5" BEL
+        "basesoc_wishbone2csr_dat_r_9_BRB0" BEL
+        "basesoc_wishbone2csr_dat_r_9_BRB1" BEL
+        "basesoc_wishbone2csr_dat_r_9_BRB2" BEL
+        "basesoc_wishbone2csr_dat_r_9_BRB3" BEL
+        "basesoc_wishbone2csr_dat_r_9_BRB4" BEL
+        "basesoc_wishbone2csr_dat_r_9_BRB5" BEL
+        "basesoc_wishbone2csr_dat_r_10_BRB0" BEL
+        "basesoc_wishbone2csr_dat_r_10_BRB1" BEL
+        "basesoc_wishbone2csr_dat_r_10_BRB2" BEL
+        "basesoc_wishbone2csr_dat_r_10_BRB3" BEL
+        "basesoc_wishbone2csr_dat_r_10_BRB4" BEL
+        "basesoc_wishbone2csr_dat_r_10_BRB5" BEL
+        "basesoc_wishbone2csr_dat_r_11_BRB0" BEL
+        "basesoc_wishbone2csr_dat_r_11_BRB1" BEL
+        "basesoc_wishbone2csr_dat_r_11_BRB2" BEL
+        "basesoc_wishbone2csr_dat_r_11_BRB3" BEL
+        "basesoc_wishbone2csr_dat_r_11_BRB4" BEL
+        "basesoc_wishbone2csr_dat_r_11_BRB5" BEL
+        "basesoc_wishbone2csr_dat_r_12_BRB0" BEL
+        "basesoc_wishbone2csr_dat_r_12_BRB1" BEL
+        "basesoc_wishbone2csr_dat_r_12_BRB2" BEL
+        "basesoc_wishbone2csr_dat_r_12_BRB3" BEL
+        "basesoc_wishbone2csr_dat_r_12_BRB4" BEL
+        "basesoc_wishbone2csr_dat_r_12_BRB5" BEL
+        "basesoc_wishbone2csr_dat_r_13_BRB0" BEL
+        "basesoc_wishbone2csr_dat_r_13_BRB1" BEL
+        "basesoc_wishbone2csr_dat_r_13_BRB2" BEL
+        "basesoc_wishbone2csr_dat_r_13_BRB3" BEL
+        "basesoc_wishbone2csr_dat_r_13_BRB4" BEL
+        "basesoc_wishbone2csr_dat_r_13_BRB5" BEL
+        "basesoc_wishbone2csr_dat_r_14_BRB0" BEL
+        "basesoc_wishbone2csr_dat_r_14_BRB1" BEL
+        "basesoc_wishbone2csr_dat_r_14_BRB2" BEL
+        "basesoc_wishbone2csr_dat_r_14_BRB3" BEL
+        "basesoc_wishbone2csr_dat_r_14_BRB4" BEL
+        "basesoc_wishbone2csr_dat_r_14_BRB5" BEL
+        "basesoc_wishbone2csr_dat_r_15_BRB0" BEL
+        "basesoc_wishbone2csr_dat_r_15_BRB1" BEL
+        "basesoc_wishbone2csr_dat_r_15_BRB2" BEL
+        "basesoc_wishbone2csr_dat_r_15_BRB3" BEL
+        "basesoc_wishbone2csr_dat_r_15_BRB4" BEL
+        "basesoc_wishbone2csr_dat_r_15_BRB5" BEL
+        "interface9_bank_bus_dat_r_6_BRB0" BEL
+        "interface9_bank_bus_dat_r_6_BRB1" BEL
+        "interface9_bank_bus_dat_r_7_BRB0" BEL
+        "interface9_bank_bus_dat_r_8_BRB0" BEL
+        "interface9_bank_bus_dat_r_9_BRB0" BEL
+        "interface9_bank_bus_dat_r_10_BRB0" BEL
+        "interface9_bank_bus_dat_r_11_BRB0" BEL
+        "interface9_bank_bus_dat_r_12_BRB0" BEL
+        "interface9_bank_bus_dat_r_13_BRB0" BEL
+        "interface9_bank_bus_dat_r_14_BRB0" BEL
+        "interface9_bank_bus_dat_r_15_BRB0" BEL
+        "interface5_bank_bus_dat_r_7_BRB0" BEL
+        "interface5_bank_bus_dat_r_7_BRB1" BEL
+        "interface5_bank_bus_dat_r_8_BRB0" BEL
+        "interface5_bank_bus_dat_r_9_BRB0" BEL
+        "interface5_bank_bus_dat_r_10_BRB0" BEL
+        "interface5_bank_bus_dat_r_11_BRB0" BEL
+        "interface2_bank_bus_dat_r_12_BRB3" BEL
+        "interface2_bank_bus_dat_r_12_BRB4" BEL
+        "interface2_bank_bus_dat_r_13_BRB3" BEL
+        "interface2_bank_bus_dat_r_13_BRB4" BEL
+        "interface2_bank_bus_dat_r_14_BRB3" BEL
+        "interface2_bank_bus_dat_r_14_BRB4" BEL
+        "interface2_bank_bus_dat_r_15_BRB3" BEL
+        "interface2_bank_bus_dat_r_15_BRB4" BEL
+        "interface7_bank_bus_dat_r_7_BRB0" BEL
+        "interface7_bank_bus_dat_r_7_BRB3" BEL
+        "interface7_bank_bus_dat_r_7_BRB4" BEL
+        "interface7_bank_bus_dat_r_8_BRB3" BEL
+        "interface7_bank_bus_dat_r_8_BRB4" BEL
+        "interface7_bank_bus_dat_r_9_BRB3" BEL
+        "interface7_bank_bus_dat_r_9_BRB4" BEL
+        "interface7_bank_bus_dat_r_10_BRB3" BEL
+        "interface7_bank_bus_dat_r_10_BRB4" BEL
+        "interface7_bank_bus_dat_r_11_BRB3" BEL
+        "interface7_bank_bus_dat_r_11_BRB4" BEL
+        "interface7_bank_bus_dat_r_12_BRB3" BEL
+        "interface7_bank_bus_dat_r_12_BRB4" BEL
+        "interface7_bank_bus_dat_r_13_BRB3" BEL
+        "interface7_bank_bus_dat_r_13_BRB4" BEL
+        "interface7_bank_bus_dat_r_14_BRB3" BEL
+        "interface7_bank_bus_dat_r_14_BRB4" BEL
+        "interface7_bank_bus_dat_r_15_BRB3" BEL
+        "interface7_bank_bus_dat_r_15_BRB4" BEL
+        "adxl362_spimastercore_spimachine_write0_BRB3" BEL
+        "adxl362_spimastercore_spimachine_write0_BRB4" BEL
+        "adxl362_spimastercore_spimachine_write0_BRB5" BEL
+        "adxl362_spimastercore_spimachine_write0_BRB6" BEL
+        "probeSPI_spimastercore_spimachine_write0_BRB3" BEL
+        "probeSPI_spimastercore_spimachine_write0_BRB4" BEL
+        "probeSPI_spimastercore_spimachine_write0_BRB5" BEL
+        "probeSPI_spimastercore_spimachine_write0_BRB6" BEL
+        "interface6_bank_bus_dat_r_7_BRB0" BEL
+        "interface6_bank_bus_dat_r_7_BRB3" BEL
+        "interface6_bank_bus_dat_r_7_BRB5" BEL
+        "interface6_bank_bus_dat_r_8_BRB3" BEL
+        "interface6_bank_bus_dat_r_8_BRB5" BEL
+        "interface6_bank_bus_dat_r_9_BRB3" BEL
+        "interface6_bank_bus_dat_r_9_BRB5" BEL
+        "interface6_bank_bus_dat_r_10_BRB3" BEL
+        "interface6_bank_bus_dat_r_10_BRB5" BEL
+        "interface6_bank_bus_dat_r_11_BRB3" BEL
+        "interface6_bank_bus_dat_r_11_BRB5" BEL
+        "interface6_bank_bus_dat_r_12_BRB3" BEL
+        "interface6_bank_bus_dat_r_12_BRB5" BEL
+        "interface6_bank_bus_dat_r_13_BRB3" BEL
+        "interface6_bank_bus_dat_r_13_BRB5" BEL
+        "interface6_bank_bus_dat_r_14_BRB3" BEL
+        "interface6_bank_bus_dat_r_14_BRB5" BEL
+        "interface6_bank_bus_dat_r_15_BRB3" BEL
+        "interface6_bank_bus_dat_r_15_BRB5" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_22_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_22_BRB1" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_18_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_18_BRB1" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_15_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_15_BRB1" BEL
+        "interface2_bank_bus_dat_r_29_BRB3" BEL
+        "interface2_bank_bus_dat_r_29_BRB4" BEL
+        "interface2_bank_bus_dat_r_30_BRB3" BEL
+        "interface2_bank_bus_dat_r_30_BRB4" BEL
+        "adxl362_spimastercore_spimachine_data_0_BRB6" BEL
+        "adxl362_spimastercore_spimachine_data_0_BRB7" BEL
+        "adxl362_spimastercore_spimachine_data_0_BRB9" BEL
+        "adxl362_spimastercore_spimachine_data_0_BRB4" BEL
+        "probeSPI_spimastercore_spimachine_data_0_BRB6" BEL
+        "probeSPI_spimastercore_spimachine_data_0_BRB7" BEL
+        "probeSPI_spimastercore_spimachine_data_0_BRB9" BEL
+        "probeSPI_spimastercore_spimachine_data_0_BRB4" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_19_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_19_BRB1" BEL
+        "uartwishbonebridge_tx_phase_accumulator_tx_17_BRB1" BEL
+        "uartwishbonebridge_rx_phase_accumulator_rx_17_BRB1" BEL
+        "_n1919<7>1_FRB" BEL
+        "GND_1_o_uartwishbonebridge_length[7]_equal_36_o81_FRB" BEL
+        "display_counter_16_BRB0" BEL "display_counter_16_BRB1" BEL
+        "display_counter_16_BRB2" BEL "display_counter_16_BRB3" BEL
+        "display_counter_15_BRB3" BEL "clk100_BUFGP/BUFG" PIN
+        "Mram_mem_pins<63>" PIN "Mram_mem_pins<62>";
+TSclk100 = PERIOD TIMEGRP "PRDclk100" 10 ns HIGH 50%;
+SCHEMATIC END;
+

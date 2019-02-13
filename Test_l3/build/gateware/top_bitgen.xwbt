@@ -1,0 +1,7 @@
+INFILE=/opt/lab003/build/gateware/top.ncd
+OUTFILE=/opt/lab003/build/gateware/top.bit
+FAMILY=Artix7
+PART=xc7a100t-1csg324
+WORKINGDIR=/opt/lab003/build/gateware
+LICENSE=WebPack
+USER_INFO=211380721_0_0_555

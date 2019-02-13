@@ -1,0 +1,46 @@
+Release 14.7 Map P.20131013 (lin64)
+Xilinx Mapping Report File for Design 'top'
+
+Design Information
+------------------
+Command Line   : map -ol high -w -o top_map.ncd top.ngd top.pcf 
+Target Device  : xc7a100t
+Target Package : csg324
+Target Speed   : -1
+Mapper Version : artix7 -- $Revision: 1.55 $
+Mapped Date    : Sun Feb 10 14:19:50 2019
+
+Design Summary
+--------------
+Number of errors   :   1
+Number of warnings :   0
+
+Section 1 - Errors
+------------------
+ERROR:Pack:2811 - Directed packing was unable to obey the user design
+   constraints (LOC=B13) which requires the combination of the symbols listed
+   below to be packed into a single IOB33 component.
+
+   The directed pack was not possible because: More than one pad symbol.
+   The symbols involved are:
+   	BUF symbol "out_probe0_OBUF" (Output Signal = out_probe0)
+   	PAD symbol "out_probe0.PAD" (Pad Signal = out_probe0)
+   	PAD symbol "LCD_Parallel0<0>" (Pad Signal = LCD_Parallel0<0>)
+
+Section 2 - Warnings
+--------------------
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network LCD_Parallel0<7>_IBUF has no load.
+INFO:LIT:395 - The above info message is repeated 11 more times for the
+   following (max. 5 shown):
+   LCD_Parallel0<6>_IBUF,
+   LCD_Parallel0<5>_IBUF,
+   LCD_Parallel0<4>_IBUF,
+   LCD_Parallel0<3>_IBUF,
+   LCD_Parallel0<2>_IBUF
+   To see the details of these info messages, please use the -detail switch.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
