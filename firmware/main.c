@@ -96,8 +96,9 @@ static void help(void)
 	puts("led                             - led test");
 	puts("led2                            - led2 test");
 	puts("spi                             - spi test");
-	puts("out                             - out test");
-	puts("I2C test                        - I2C test");
+/*	puts("out                             - out test");
+	puts("I2C                             - I2C test"); */
+    puts("LCD                             - LCD test");
 }
 
 static void reboot(void)
@@ -117,7 +118,7 @@ static void display_test(void)
 }
 
 
-static void led_test(void)
+/*static void led_test(void)
 {
 	int i;
 	printf("led_test...\n");
@@ -138,7 +139,7 @@ static void led2_test(void)
 	}
 }
 
-static void spi_test(void)
+/*static void spi_test(void)
 {
 int i=100;
     while(i>0){    
@@ -152,8 +153,38 @@ int i=100;
         i--;
     }
 
+}*/
+
+static void LCD(void)
+{
+   
+/*        printf("Enviando 0x56FF a la direcion AA\n");        
+        lcd_test_DATA_write(0x56FF);    
+        lcd_test_ADDR_write(0xAA);
+        lcd_test_start_write(1);
+        lcd_test_start_write(0);
+        while(lcd_test_busy_read()){
+        }
+        lcd_test_DATA_write(0x3456);    
+        lcd_test_ADDR_write(0x12);
+        lcd_test_start_write(1);
+        lcd_test_start_write(0);
+
+        printf("Enviando 0x3456 a la direcion 12\n");
+        
+        while(lcd_test_busy_read()){
+        }        
+*/
+        printf("Prueba reset\n");
+        lcd_test_DATA_write(0x56FF);    
+        lcd_test_ADDR_write(0xAA);
+        lcd_test_start_write(0x3);
+        lcd_test_start_write(0x0);        
+        while(lcd_test_busy_read()){
+        }
+        printf("terminado\n");
 }
-static void out_test(void)
+/*static void out_test(void)
 {
     int i=50;
     while(i>0){        
@@ -165,13 +196,13 @@ static void out_test(void)
     }
 }
 
-static void I2C_test(void)
+/*static void I2C(void)
 {
-    int i=50;
+    int i=10;
     while(i>0){        
         Write_I2C(0x555);
     }
-}
+}*/
 
 static void console_service(void)
 {
@@ -187,16 +218,18 @@ static void console_service(void)
 		reboot();
 	else if(strcmp(token, "display") == 0)
 		display_test();
-	else if(strcmp(token, "led") == 0)
+/*	else if(strcmp(token, "led") == 0)
 		led_test();
 	else if(strcmp(token, "led2") == 0)
 		led2_test();
-	else if(strcmp(token, "spi") == 0)
-		spi_test();
-	else if(strcmp(token, "out") == 0)
-		out_test();
-	else if(strcmp(token, "I2C_test") == 0)
-		I2C_test();
+//	else if(strcmp(token, "spi") == 0)
+//		spi_test();
+//	else if(strcmp(token, "out") == 0)
+//		out_test();
+/*	else if(strcmp(token, "I2C") == 0)
+		I2C();*/
+    else if(strcmp(token, "LCD") == 0)
+        LCD();
 	prompt();
 }
 

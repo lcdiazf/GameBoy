@@ -21,9 +21,8 @@ from lcd_core import *
 #
 # platform
 #
-"""
-_io = [
-   
+
+_io = [   
     ("display_cs_n",  0, Pins("N6 M6 N5 N2 L1 M1 M3 N4"), IOStandard("LVCMOS33")),
     ("display_abcdefg",  0, Pins("L3 N1 L5 L4 K3 M2 L6 M4"), IOStandard("LVCMOS33")),
 
@@ -34,20 +33,48 @@ _io = [
     ("serial", 0,
         Subsignal("tx", Pins("D4")),
         Subsignal("rx", Pins("C4")),
-        IOStandard("LVCMOS33"),
-    ),
-    ("cs",0, Pins("E6"),IOStandard("LVCMOS33")),
-    ("rs",0, Pins("E7"),IOStandard("LVCMOS33")),
-    ("rd",0, Pins("J3"),IOStandard("LVCMOS33")),
-    ("wr",0, Pins("J2"),IOStandard("LVCMOS33")),
-    ("rst",0, Pins("K2"),IOStandard("LVCMOS33")),
-    ("db",0, Pins("F3 G3 H2 H4 G4 H1 G2 G1"),IOStandard("LVCMOS33")),
-    ("clk_1",0, Pins("J4"),IOStandard("LVCMOS33")),
+        IOStandard("LVCMOS33")),
 
-    ("l1",0, Pins("G14"),IOStandard("LVCMOS33")),
-    ("l2",0, Pins("P15"),IOStandard("LVCMOS33")),
-    ("l3",0, Pins("V11"),IOStandard("LVCMOS33"))
-]"""
+    ("cs",0, Pins("E7"),IOStandard("LVCMOS33")),
+    ("rs",0, Pins("E6"),IOStandard("LVCMOS33")),
+    ("rd",0, Pins("K1"),IOStandard("LVCMOS33")),
+    ("wr",0, Pins("K2"),IOStandard("LVCMOS33")),
+    ("rst",0, Pins("J2"),IOStandard("LVCMOS33")),
+    ("db",0, Pins("G3 F3 G1 G2 H1 G4 H4 H2"),IOStandard("LVCMOS33"))
+]
+
+"""
+    ("db",0, Pins("H2 H4 G4 H1 G2 G1 F3 G3"),IOStandard("LVCMOS33"))
+
+analizador          nexys4
+                    DB:
+0 ->                4   g3
+1                   10  f3
+2                   3   g1
+3                   9   g2
+4                   2   h1
+5                   8   g4
+6                   1   h4
+7                   7   h2
+
+8                   3   J3  N.C
+9                   9   J2  rst
+10                  2   E7  cs
+11                  8   E6  rs
+12                  1   k2  wr
+13                  7   K1  rd
+14                  N.C
+
+
+    ),
+    ("cs",0, Pins("E7"),IOStandard("LVCMOS33")),
+    ("rs",0, Pins("E6"),IOStandard("LVCMOS33")),
+    ("rd",0, Pins("K1"),IOStandard("LVCMOS33")),
+    ("wr",0, Pins("K2"),IOStandard("LVCMOS33")),
+    ("rst",0, Pins("J2"),IOStandard("LVCMOS33")),
+    ("db",0, Pins("H4 H2 G3 F3 G1 G2 H1 G4"),IOStandard("LVCMOS33")),
+
+
 
 _io = [
 
@@ -70,6 +97,7 @@ _io = [
     ("rst",0, Pins("J4"),IOStandard("LVCMOS33")),
     ("db",0, Pins("H4 H2 G3 F3 G1 G2 H1 G4"),IOStandard("LVCMOS33"))
 ]
+"""
 
 
 
