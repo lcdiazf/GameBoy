@@ -5,325 +5,227 @@ class _LCD_i80(Module, AutoCSR):
     def __init__(self):
 
         self.data=data=Signal(16)
-        self.gdatar=gdatar=Signal(16)
-        self.gdatag=gdatag=Signal(16)
-        self.gdatab=gdatab=Signal(16)
         self.addr=addr=Signal(8)
         self.busy=busy=Signal()
         self.start=start=Signal(2)
-        self.config=config=Signal()
+        self.number=number=Signal(20)
+        self.option=option=Signal(3)
 
         self.db=Signal(8)
-        self.cs=Signal()
         self.rs=Signal()
         self.rd=Signal()
         self.wr=Signal()
         self.rst=Signal()
 
         count=Signal(24)
-        #camvio
         manage=Signal(4)
         count2=Signal(4)
         count3=Signal(24)
         count4=Signal(24)
-        countwr=Signal(2)
+        count5=Signal(4)
+        count6=Signal(4)
+        count7=Signal(3)
+        countwr=Signal(4)
+        manage_ant=Signal(3)
+        counter_regs=Signal(20)
 
         fsm=FSM(reset_state="START")
         self.submodules+=fsm
 
-        fsm.act("START",  
-	        NextValue(self.cs,1),
+        fsm.act("START",
             NextValue(self.rs,1),
             NextValue(self.rd,1),
             NextValue(self.wr,1),
             NextValue(self.db,0x00),
-            busy.eq(0),
+            NextValue(busy,0),
             NextValue(count2,0x0),
             NextValue(count,0x0),
+            NextValue(counter_regs,0),
             NextValue(self.rst,1),
-#
             NextValue(manage,0x0),
-#
             If(start==0b01,NextState("MANAGER")),
             If(start==0b11,NextState("RESET0"))
         )
-        fsm.act("HEAD",  
-	        NextValue(self.cs,0),
+        fsm.act("SENDZERO",
             NextValue(self.rs,0),
-            NextValue(self.rd,1),
-            NextValue(self.wr,~self.wr),
-            NextValue(self.db,0x00),
-            self.busy.eq(1),
-            NextValue(self.rst,1),
-#
-            NextValue(manage,0x1),
-#
+            NextValue(self.db,0X00),
+            NextValue(busy,1),
+            NextValue(manage,0x5),
+            NextValue(manage_ant,0x5),
             NextValue(count2,0x0),
-            If(self.wr==1,NextState("MANAGERWR")),
-            If(self.wr==0,NextState("MANAGER"))
+            NextState("MANAGER")
         )
-        fsm.act("INDEX",  
-	        NextValue(self.cs,0),
+        fsm.act("SETADDR",
             NextValue(self.rs,0),
-            NextValue(self.rd,1),
-            NextValue(self.wr,~self.wr),
             NextValue(self.db,addr),
-            busy.eq(1),
-            NextValue(self.rst,1),
-#
+            NextValue(busy,1),
+            NextValue(manage,0x1),
+            NextValue(manage_ant,0x1),
+            NextValue(count2,0x0),
+            NextState("MANAGER")
+        )
+        fsm.act("WRSTROBE",
+            NextValue(busy,1),
+            NextValue(self.wr,~self.wr),
             NextValue(manage,0x2),
-#
+            NextValue(countwr,0x0),
             NextValue(count2,0x0),
             If(self.wr==1,NextState("MANAGERWR")),
             If(self.wr==0,NextState("MANAGER"))
         )
-        fsm.act("Hdata",  
-	        NextValue(self.cs,0),
+        fsm.act("Hdata",
+            NextValue(busy,1),
             NextValue(self.rs,1),
-            NextValue(self.rd,1),
-            NextValue(self.wr,~self.wr),
             NextValue(self.db,data >> 8),
-            busy.eq(1),
-            NextValue(self.rst,1),
-#
             NextValue(manage,0x3),
-#
+            NextValue(manage_ant,0x3),
             NextValue(count2,0x0),
-            If(self.wr==1,NextState("MANAGERWR")),
-            If(self.wr==0,NextState("MANAGER"))
+            NextState("MANAGER")
         )
         fsm.act("Ldata",  
-	        NextValue(self.cs,0),
+            NextValue(busy,1),
             NextValue(self.rs,1),
-            NextValue(self.rd,1),
-            NextValue(self.wr,~self.wr),
             NextValue(self.db,data),
-            busy.eq(1),
-            NextValue(self.rst,1),
-#
             NextValue(manage,0x4),
-#
+            NextValue(manage_ant,0x4),
             NextValue(count2,0x0),
-            If(self.wr==1,NextState("MANAGERWR")),
-            If(self.wr==0,NextState("MANAGER"))
+            NextValue(counter_regs,counter_regs+1),
+            NextState("MANAGER")
         )
-
-
-        fsm.act("HdataR",  
-	        NextValue(self.cs,0),
-            NextValue(self.rs,1),
-            NextValue(self.rd,1),
-            NextValue(self.wr,~self.wr),
-            NextValue(self.db,gdatar >> 8),
-            busy.eq(1),
-            NextValue(self.rst,1),
-#
-            NextValue(manage,0x5),
-#
-            NextValue(count2,0x0),
-            If(self.wr==1,NextState("MANAGERWR")),
-            If(self.wr==0,NextState("MANAGER"))
-        )
-        fsm.act("LdataR",  
-	        NextValue(self.cs,0),
-            NextValue(self.rs,1),
-            NextValue(self.rd,1),
-            NextValue(self.wr,~self.wr),
-            NextValue(self.db,gdatar),
-            busy.eq(1),
-            NextValue(self.rst,1),
-#
-            NextValue(manage,0x6),
-#
-            NextValue(count2,0x0),
-            If(self.wr==1,NextState("MANAGERWR")),
-            If(self.wr==0,NextState("MANAGER"))
-        )
-
-        fsm.act("HdataG",  
-	        NextValue(self.cs,0),
-            NextValue(self.rs,1),
-            NextValue(self.rd,1),
-            NextValue(self.wr,~self.wr),
-            NextValue(self.db,gdatag >> 8),
-            busy.eq(1),
-            NextValue(self.rst,1),
-#
-            NextValue(manage,0x7),
-#
-            NextValue(count2,0x0),
-            If(self.wr==1,NextState("MANAGERWR")),
-            If(self.wr==0,NextState("MANAGER"))
-        )
-        fsm.act("LdataG",  
-	        NextValue(self.cs,0),
-            NextValue(self.rs,1),
-            NextValue(self.rd,1),
-            NextValue(self.wr,~self.wr),
-            NextValue(self.db,gdatag),
-            busy.eq(1),
-            NextValue(self.rst,1),
-#
-            NextValue(manage,0x8),
-#
-            NextValue(count2,0x0),
-            If(self.wr==1,NextState("MANAGERWR")),
-            If(self.wr==0,NextState("MANAGER"))
-        )
-
-
-        fsm.act("HdataB",  
-	        NextValue(self.cs,0),
-            NextValue(self.rs,1),
-            NextValue(self.rd,1),
-            NextValue(self.wr,~self.wr),
-            NextValue(self.db,gdatab >> 8),
-            busy.eq(1),
-            NextValue(self.rst,1),
-#
-            NextValue(manage,0x9),
-#
-            NextValue(count2,0x0),
-            If(self.wr==1,NextState("MANAGERWR")),
-            If(self.wr==0,NextState("MANAGER"))
-        )
-        fsm.act("LdataB",  
-	        NextValue(self.cs,0),
-            NextValue(self.rs,1),
-            NextValue(self.rd,1),
-            NextValue(self.wr,~self.wr),
-            NextValue(self.db,gdatab),
-            busy.eq(1),
-            NextValue(self.rst,1),
-#
-            NextValue(manage,0xA),
-#
-            NextValue(count2,0x0),
-            If(self.wr==1,NextState("MANAGERWR")),
-            If(self.wr==0,NextState("MANAGER"))
-        )
-
-
-
-
+        
         fsm.act("MANAGER",
             NextValue(count2,count2+1),
-            If(count2<15,NextState("MANAGER")),
-            If(count2>=15,
-                If(manage==0x0,NextState("HEAD")),
-                If(manage==0x1,NextState("INDEX")),
-                If(manage==0x2,
-                    If(config==0,NextState("Hdata")),
-                    If(config==1,NextState("HdataR")),
+            If(count2<10,NextState("MANAGER")),
+            If(count2>=10,
+                If(manage==0x0,
+                    If(option==0x5,NextState("Hdata")),
+                    If(option==0x1,NextState("SETADDR")),
+                    If(option==0x3,NextState("SETADDR")),
+                    If((option==0x0),NextState("SENDZERO")),
+                    If((option==0x2),NextState("SENDZERO")),
                 ),
-                If(manage==0x3,NextState("Ldata")),
-                If(manage==0x4,NextState("START")),
-                If(manage==0x5,NextState("LdataR")),
-                If(manage==0x6,NextState("HdataG")),
-                If(manage==0x7,NextState("LdataG")),
-                If(manage==0x8,NextState("HdataB")),
-                If(manage==0x9,NextState("LdataB")),
-                If(manage==0xA,NextState("START"))
+                If(manage==0x1,NextState("WRSTROBE")),              
+                If(manage==0x2,
+                    If(manage_ant==0x1,
+                        If(option==0,NextState("Hdata")),
+                        If(option==2,NextState("START")),
+                        If(option==1,NextState("Ldata")),
+                        If(option==3,NextState("START")),
+                    ),
+                    If(manage_ant==0x3,NextState("Ldata")),
+#                        If(option==1,NextState("WAIT_START")),
+#                        If(option==0,NextState("Ldata"))
+#                    ),
+                    If(manage_ant==0x4,
+                        If(counter_regs<number,
+                            If(option==0,NextState("Hdata")),
+                            If(option==1,NextState("Ldata")),
+                            If(option==5,NextState("Hdata")),
+                        ),
+                        If(counter_regs>=number,NextState("WAIT_START")),
+                    ),
+                    If(manage_ant==0x5,NextState("SETADDR")),
+                ),
+                If(manage==0x3,NextState("WRSTROBE")),
+                If(manage==0x4,NextState("WRSTROBE")),
+                If(manage==0x5,NextState("WRSTROBE")),
             ),
         )
-
+        fsm.act("WAIT_START",
+            NextValue(countwr,countwr+1),
+            If(countwr<3,NextState("WAIT_START")),
+            If(countwr>=3,
+                NextState("START"),
+            )
+        )
         fsm.act("MANAGERWR",
             NextValue(countwr,countwr+1),
-            If(countwr<3,NextState("MANAGERWR")),
-            If(countwr>=3,
-                If(manage==0x1,NextState("HEAD")),
-                If(manage==0x2,NextState("INDEX")),
-                If(manage==0x3,NextState("Hdata")),
-                If(manage==0x4,NextState("Ldata")),
-                If(manage==0x5,NextState("HdataR")),
-                If(manage==0x6,NextState("LdataR")),
-                If(manage==0x7,NextState("HdataG")),
-                If(manage==0x8,NextState("LdataG")),
-                If(manage==0x9,NextState("HdataB")),
-                If(manage==0xA,NextState("LdataB")),
-            ),
+            If(countwr<10,NextState("MANAGERWR")),
+            If(countwr>=10,
+                NextState("WRSTROBE"),
+            )
         )
-#        fsm.act("MANAGER",
-#            NextValue(count2,count2+1),
-#            If(count2<15,NextState("MANAGER")),
-#            If(count2>=15,
-#                If(manage==0,NextState("HEAD")),
-#                If(manage==1,
-#                    If(self.wr==1,NextState("HEAD")),
-#                    If(self.wr==0,NextState("INDEX")),
-                    
-#                ),
-#                If(manage==2,
-#                    If(self.wr==1,NextState("INDEX")),
-#                    If(self.wr==0,NextState("Hdata")),
-                    
-#                ),
-#                If(manage==3,
-#                    If(self.wr==1,NextState("Hdata")),
-#                    If(self.wr==0,NextState("Ldata")),
-                    
-#                ),
-#                If(manage==4,
-#                    If(self.wr==1,NextState("Ldata")),
-#                    If(self.wr==0,NextState("START")),
-                    
-#                ),
-#            ),
-#        )
-
-##
         fsm.act("RESET0",
-            busy.eq(1),
+            NextValue(busy,1),
             NextValue(self.rst,1),
+            NextValue(self.wr,1),
+            NextValue(self.rd,1),
             NextValue(count,count+1),
             NextValue(count3,0x0),
-            If(count<1000,NextState("RESET0")),
-            If(count>=1000,
+            If(count<5,NextState("RESET0")),
+            If(count>=5,
                 NextState("RESET1")
             )
         )
         fsm.act("RESET1",
-            busy.eq(1),
+            NextValue(busy,1),
             NextValue(self.rst,0),
             NextValue(count3,count3+1),
-            If(count3<10000,NextState("RESET1")),
-            If(count3>=10000,
+            If(count3<200000,NextState("RESET1")),
+            If(count3>=200000,
                 NextValue(count4,0),
                 NextState("RESET2")
             )
         )
         fsm.act("RESET2",
-            busy.eq(1),
+            NextValue(busy,1),
             NextValue(self.rst,1),
+            NextValue(self.rs,0),
+            NextValue(self.db,0x00),
             NextValue(count4,count4+1),
-            If(count4<50000,NextState("RESET2")),
-            If(count4>=50000,
-                NextValue(count,0),
+            If(count4<10,NextState("RESET2")),
+            If(count4>=10,
+                NextValue(count5,0),
+                NextValue(count6,0),
+                NextState("RESET3")
+            )
+        )
+        fsm.act("RESET3",
+            NextValue(busy,1),
+            NextValue(self.rst,1),
+            NextValue(count5,count5+1),
+            If(count5<5,NextState("RESET3")),
+            If(count5>=5,
+                NextValue(self.wr,~self.wr),
+                NextValue(count6,count6+1),
+                If(count6<5,
+                    NextState("RESET3")
+                ),
+                If(count6>=5,
+                    NextValue(count,0),
+                    NextValue(count6,0),
+                    NextValue(count7,0),
+                    NextState("RESETEND")
+                ),
+            )
+        )
+        fsm.act("RESETEND",
+            NextValue(count7,count7+1),
+            If(count7<2,NextState("RESETEND")),
+            If(count7>=2,
                 NextState("START")
             )
         )
-
 class LCD_i80(Module, AutoCSR):
     def __init__(self):
 
         # # # Control Registers
         self.DATA=CSRStorage(16)
-        self.GDATAR=CSRStorage(16)
-        self.GDATAG=CSRStorage(16)
-        self.GDATAB=CSRStorage(16)
+        self.NUMBER=CSRStorage(32)
         self.ADDR=CSRStorage(8)
-        self.busy=CSRStatus()
-        self.start=CSRStorage(2)
-        self.Config=CSRStorage()
+        self.BUSY=CSRStatus()
+        self.START=CSRStorage(2)
+        self.OPTION=CSRStorage(3)
+        self.CS_=CSRStorage()
 
         # # #
 
         self.db_=Signal(8)
-        self.cs_=Signal()
         self.rs_=Signal()
         self.rd_=Signal()
         self.wr_=Signal()
         self.rst_=Signal()
+        self.cs_=Signal()
 
         # # #
 
@@ -333,15 +235,13 @@ class LCD_i80(Module, AutoCSR):
 
         self.comb += [
             _lcd.data.eq(self.DATA.storage),
-            _lcd.gdatar.eq(self.GDATAR.storage),
-            _lcd.gdatag.eq(self.GDATAG.storage),
-            _lcd.gdatab.eq(self.GDATAB.storage),
+            _lcd.option.eq(self.OPTION.storage),
             _lcd.addr.eq(self.ADDR.storage),
-            self.busy.status.eq(_lcd.busy),
-            _lcd.start.eq(self.start.storage),
-            _lcd.config.eq(self.Config.storage),
+            _lcd.number.eq(self.NUMBER.storage),
+            self.BUSY.status.eq(_lcd.busy),
+            _lcd.start.eq(self.START.storage),
             self.db_.eq(_lcd.db),
-            self.cs_.eq(_lcd.cs),
+            self.cs_.eq(self.CS_.storage),
             self.rs_.eq(_lcd.rs),
             self.rd_.eq(_lcd.rd),
             self.wr_.eq(_lcd.wr),
@@ -351,7 +251,6 @@ class LCD_i80(Module, AutoCSR):
 # First simulation
 
 DBs=Signal(8)
-CSs=Signal()
 RSs=Signal()
 RDs=Signal()
 WRs=Signal()
@@ -361,51 +260,22 @@ clk_s=Signal()
 dut=LCD_i80()
 
 def test_bench(dut):
-    yield from dut.DATA.write(0x55FF)
-    yield from dut.GDATAR.write(0x1234)
-    yield from dut.GDATAG.write(0x5678)
-    yield from dut.GDATAB.write(0x9ABC)
-    yield from dut.ADDR.write(0x2f)
-    yield from dut.busy.read()
-    yield from dut.start.write(1)
-    yield from dut.Config.write(0)
+    yield from dut.DATA.write(0x28ab)
+    yield from dut.ADDR.write(0x3c)
+    yield from dut.OPTION.write(0)
+    yield from dut.NUMBER.write(3)
+    yield from dut.BUSY.read()
+    yield from dut.START.write(1)
+    yield from dut.START.write(0)
     yield DBs
-    yield CSs
     yield RSs
     yield RDs
     yield WRs
     yield RSTs
-    for i in range(10000):
+    for i in range(2000):
         yield
 
-print ("init simulation 1")
-run_simulation(dut, test_bench(dut), vcd_name="lcd.vcd")
-print ("end simulation 1")
-"""
-#Second simulation
+#print ("init simulation 1")
+#run_simulation(dut, test_bench(dut), vcd_name="lcd.vcd")
+#print ("end simulation 1")
 
-DB2=Signal(8)
-CS2=Signal()
-RS2=Signal()
-RD2=Signal()
-WR2=Signal()
-RST2=Signal()
-clk=Signal()
-lcdIns=_LCD_i80(DB2, CS2, RS2, RD2, WR2, RST2, clk)
-
-
-def test_bench2(lcdIns):
-    yield lcdIns.data.eq(0x55EA)
-    yield lcdIns.addr.eq(0xff)
-    yield lcdIns.start.eq(0)
-    yield
-    yield lcdIns.start.eq(0b11)
-    for i in range(2):
-        yield
-    yield lcdIns.start.eq(0)
-    for i in range(10):
-        yield
-print ("init simulation 2")
-run_simulation(lcdIns, test_bench2(lcdIns), vcd_name="lcd1.vcd")
-print ("end simulation 2")
-"""
