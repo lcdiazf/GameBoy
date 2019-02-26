@@ -1,0 +1,57 @@
+//************* Reset LCD Driver ****************//
+LCD_nRESET = 1;
+DelayNS(1); // Delay 1ms
+LCD_nRESET = 0;
+DelayNS(10); // Delay 10ms // This delay time is necessary
+LCD_nRESET = 1;
+DelayNS(50); // Delay 50 ms
+//************* Start Initial Sequence **********//
+WRITE_LCD_REG(0x01, 0x0100); // driver output control -> shift direction is from S720 to S1
+WRITE_LCD_REG(0x02, 0x0200); // set inverion -> line inversion on
+WRITE_LCD_REG(0x03, 0x1030); // set entry mode -> Swap the RGB data to BGR in writing into GRAM. Horizonta l : increment, Vertical:increment
+WRITE_LCD_REG(0x08, 0x0202); // set back & front porch
+WRITE_LCD_REG(0x09, 0x0000); // set scan interval
+WRITE_LCD_REG(0x0a, 0x0000); // set display control1
+WRITE_LCD_REG(0x0c, 0x0000); // set RGB I/F display control
+WRITE_LCD_REG(0x0d, 0x0000); // set frame mark position
+WRITE_LCD_REG(0x60, 0x2700); // set gate scan control
+WRITE_LCD_REG(0x61, 0x0001); // Normally White
+WRITE_LCD_REG(0x6a, 0x0000); // set gate scan control
+DelayNS(10); //delay 10ms
+WRITE_LCD_REG(0x10, 0x1490); // set BT, STB & SLP
+WRITE_LCD_REG(0x11, 0x0227); // set VCi1 & step up circuits
+DelayNS(20); //delay 80ms
+WRITE_LCD_REG(0x12, 0x000c); // set VREGOUT1
+DelayNS(10); //delay 50ms
+WRITE_LCD_REG(0x13, 0x0300); // set VCOMAC,1000,
+WRITE_LCD_REG(0x29, 0x0004); // set VCOMH, 000B,0004,
+WRITE_LCD_REG(0x2b, 0x000b); // set frame rate
+DelayNS(10); //delay 50ms
+WRITE_LCD_REG(0x20, 0x0000); // set Gram horizontal address
+WRITE_LCD_REG(0x21, 0x0000); // set Gram vertical address
+//============Gamma============
+WRITE_LCD_REG(0x30, 0x0000);
+WRITE_LCD_REG(0x31, 0x0406);
+WRITE_LCD_REG(0x32, 0x0002);
+WRITE_LCD_REG(0x35, 0x0402);
+WRITE_LCD_REG(0x36, 0x0004);
+WRITE_LCD_REG(0x37, 0x0507);
+WRITE_LCD_REG(0x38, 0x0103);
+WRITE_LCD_REG(0x39, 0x0707);
+WRITE_LCD_REG(0x3c, 0x0204);
+WRITE_LCD_REG(0x3d, 0x0004);
+//=============================
+WRITE_LCD_REG(0x50, 0x0000); // set RAM address
+WRITE_LCD_REG(0x51, 0x00ef);
+WRITE_LCD_REG(0x52, 0x0000);
+WRITE_LCD_REG(0x53, 0x013f);
+DelayNS(10); //delay 10ms
+WRITE_LCD_REG(0x07, 0x0133); // display on
+LCD_WriteCommand(0x0022);
+DelayNS(10); //delay 10ms
+DelayNS(10); //delay 10ms
+For i < 76800
+sendData(0x1BBF)  //send blue to pixel
+Next
+ 
+end
